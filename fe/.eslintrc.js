@@ -32,5 +32,9 @@ module.exports = {
     'jsx-a11y/anchor-has-content': 'off',
     'react/jsx-filename-extension': [2, { extensions: ['.tsx', '.ts', '.js'] }],
     'import/extensions': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'react/prop-types': 'off',
+    'react/no-unused-prop-types': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
 };

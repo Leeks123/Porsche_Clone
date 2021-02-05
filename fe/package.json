@@ -8,6 +8,7 @@
     "type-check": "tsc"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.4.0",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
     "@reduxjs/toolkit": "^1.5.0",
@@ -19,7 +20,7 @@
     "react-redux": "^7.2.2",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
-    "@ant-design/icons": "^4.4.0"
+    "theme-ui": "^0.6.0-alpha.6"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.1.2",
