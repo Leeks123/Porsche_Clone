@@ -1,21 +1,21 @@
+/** @jsxImportSource @emotion/react */
 import Link from 'next/link';
 import styled from '@emotion/styled';
+import { jsx } from '@emotion/react';
 
 import { mq } from '../../utils/mediaquery';
 
 const StyledLink = styled(Link)`
-    
 `;
 const StyledLogo = styled.div`
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    background-color: #fff;
+    background-color: #ffff;
     border: 0.0625rem solid #c9cacb;
     border-top: 0;
     width: 6.75rem;
     height: 4.8125rem;
     padding: 0.3125rem 0.1875rem 0.5625rem 0.1875rem;
-    z-index: 10;
     margin: 0;
     display: inline-block;
 
@@ -40,7 +40,7 @@ const StyledLogo = styled.div`
 `;
 const Logo = () => (
   <StyledLink href="/">
-    <a>
+    <a css={{ zIndex: 400 }}>
       <StyledLogo>
         <img
           srcSet="

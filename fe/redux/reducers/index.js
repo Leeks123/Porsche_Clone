@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { HYDRATE } from 'next-redux-wrapper';
+import menuSlice from './menu';
 
 // (이전상태, 액션) => 다음상태
 const rootReducer = (state, action) => {
@@ -8,6 +9,7 @@ const rootReducer = (state, action) => {
       return action.payload;
     default: {
       const combinedReducer = combineReducers({
+        menu: menuSlice.reducer,
       });
       return combinedReducer(state, action);
     }

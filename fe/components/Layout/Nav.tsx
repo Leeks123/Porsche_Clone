@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 import Logo from './Logo';
-import MenuList from './MenuList';
+import Menu from './Menu';
 import { mq } from '../../utils/mediaquery';
 
 const StyledNav = styled.nav`
@@ -22,12 +22,14 @@ const StyledNav = styled.nav`
 `;
 
 const Nav = () => (
-  <StyledNav>
-    <div className="container">
-      <Logo />
-      <MenuList />
-    </div>
-  </StyledNav>
+  <>
+    <StyledNav>
+      <div className="container">
+        <Logo />
+        <Menu />
+      </div>
+    </StyledNav>
+  </>
 );
 
 export default Nav;
