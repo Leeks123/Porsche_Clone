@@ -17,7 +17,6 @@ type Props = {
 }
 const Layout = ({ children, title = 'Porsche Korea' }: Props) => {
   const menuOpend = useSelector((state) => state.menu?.menuOpend);
-  console.log(menuOpend);
   return (
     <div>
       <Head>

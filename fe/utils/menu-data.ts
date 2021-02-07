@@ -75,6 +75,15 @@ export type textMenuProp = {
     title: string,
     data: string[],
 };
+
+export const shopMenu: textMenuProp[] = [
+  {
+    title: '부품 및 액세서리',
+    data: [
+      '라이프스타일 - 패션 & 액세서리', '포르쉐 클래식 - 순정 부품',
+    ],
+  },
+];
 export const moreMenu: textMenuProp[] = [
   {
     title: '서비스',

@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import styled from '@emotion/styled';
 import { EnvironmentOutlined } from '@ant-design/icons';
-import { modelMenu, moreMenu, textMenuProp } from '../../utils/menu-data';
+import { modelMenu, moreMenu, shopMenu } from '../../utils/menu-data';
 
 import ModelMenuList from './ModelMenuList';
 import TextMenu from './TextMenu';
 
 const StyledMenu = styled.div`
   display: flex;
+  flex: 1;
 `;
 
 const FindCenter = styled.div`
@@ -17,26 +18,19 @@ const FindCenter = styled.div`
     flex: 1;
     justify-content: center;
     flex-direction: column;
-    
+
+    margin-left: 30px;
     a {
       border-left: 1px solid lightgray; 
-      padding: 20px 60px; 
+      padding: 20px 0 20px 40px;
       color: #000;
+      text-align: right;
     }
     a:hover {
       color : #d5001c;
     }
 
 `;
-
-const shopMenu: textMenuProp[] = [
-  {
-    title: '부품 및 액세서리',
-    data: [
-      '라이프스타일 - 패션 & 액세서리', '포르쉐 클래식 - 순정 부품',
-    ],
-  },
-];
 
 const Menu = () => (
   <StyledMenu>

@@ -4,6 +4,7 @@ import ModelMenu from './ModelMenu';
 
 const Wrapper = styled.div`
     display: flex;
+    margin: 0 15px;
 `;
 type Prop = {
     data:menuDataProp[]
