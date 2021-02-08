@@ -38,7 +38,7 @@ const FindCenter = styled.div`
 `;
 
 const Sider = () => {
-  const windowWidth = useSelector((state) => state.menu?.windowWidth);
+  const windowWidth = useSelector((state) => state.layout?.windowWidth);
   const [visible, setVisible] = useState(false);
   const showDrawer = useCallback(() => {
     setVisible(true);

@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const menuSlice = createSlice({
-  name: 'menu',
+const layoutSlice = createSlice({
+  name: 'layout',
   initialState: {
     menuOpend: false,
-    windowWidth: 0,
+    windowWidth: 100,
   },
   reducers: {
     toggle: (state) => ({
@@ -16,4 +16,4 @@ const menuSlice = createSlice({
   },
 });
 
-export default menuSlice;
+export default layoutSlice;

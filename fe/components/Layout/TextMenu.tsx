@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { textMenuProp } from '../../utils/menu-data';
-import menuSlice from '../../redux/reducers/menu';
+import layoutSlice from '../../redux/reducers/layout';
 import TextSubMenu from './TextSubMenu';
 
 const StyledTextMenu = styled.div`
@@ -33,7 +33,7 @@ const TextMenu = ({ title, data }:Props) => {
   const [hovered, setHovered] = useState(false);
   const onMouseAction = useCallback(() => {
     setHovered((prev) => !prev);
-    dispatch(menuSlice.actions.toggle());
+    dispatch(layoutSlice.actions.toggle());
   }, []);
   return (
     <div onMouseEnter={onMouseAction} onMouseLeave={onMouseAction}>

@@ -16,7 +16,7 @@ type Props = {
   title?: string
 }
 const Layout = ({ children, title = 'Porsche Korea' }: Props) => {
-  const menuOpend = useSelector((state) => state.menu?.menuOpend);
+  const menuOpend = useSelector((state) => state.layout?.menuOpend);
   return (
     <div>
       <Head>
@@ -28,6 +28,7 @@ const Layout = ({ children, title = 'Porsche Korea' }: Props) => {
         <Nav />
       </header>
       {menuOpend && <Dimmed />}
+      <div style={{ height: 1200 }} />
       {children}
       <footer>
         <Footers />

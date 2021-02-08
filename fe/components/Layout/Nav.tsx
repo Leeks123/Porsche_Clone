@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from '@emotion/styled';
 
-import menuSlice from '../../redux/reducers/menu';
+import layoutSlice from '../../redux/reducers/layout';
 
 import Logo from './Logo';
 import Menu from './Menu';
@@ -33,17 +33,17 @@ const Nav = () => {
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
-    dispatch(menuSlice.actions.windowWidthChange(window.innerWidth));
-  });
+    dispatch(layoutSlice.actions.windowWidthChange(window.innerWidth));
+  }, [windowWidth]);
 
   useEffect(() => {
     window.addEventListener('resize', () => {
       setWindowWidth(window.innerWidth);
-      dispatch(menuSlice.actions.windowWidthChange(window.innerWidth));
+      dispatch(layoutSlice.actions.windowWidthChange(window.innerWidth));
     });
     return () => window.removeEventListener('resize', () => {
       setWindowWidth(window.innerWidth);
-      dispatch(menuSlice.actions.windowWidthChange(window.innerWidth));
+      dispatch(layoutSlice.actions.windowWidthChange(window.innerWidth));
     });
   }, []);
 
