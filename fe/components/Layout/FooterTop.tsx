@@ -9,6 +9,10 @@ import {
 
 const { Panel } = Collapse;
 
+const Wrapper = styled.div`
+    padding: 30px 7vw;
+`;
+
 const Container = styled.ul`
     padding: 0;
     margin: 0;
@@ -98,19 +102,19 @@ const PageRecomend = styled.div`
                         display: block;
                     }
                     &:hover {
-                        &:nth-child(1) {
+                        &:nth-of-type(1) {
                             background: #336189;
                         }
-                        &:nth-child(2) {
+                        &:nth-of-type(2) {
                             background: #CD201F;
                         }
-                        &:nth-child(3) {
+                        &:nth-of-type(3) {
                             background: #6A87C2;
                         }
-                        &:nth-child(4) {
+                        &:nth-of-type(4) {
                             background: #0474B3;
                         }
-                        &:nth-child(5) {
+                        &:nth-of-type(5) {
                             background: #54ACEE;
                         }
                     }
@@ -132,7 +136,7 @@ const FooterTop = () => {
   }, []);
 
   return (
-    <>
+    <Wrapper>
       {windowWidth > 565 ? (
         <Row gutter={[32, 32]} style={{ borderTop: '1px solid lightgray', paddingTop: 30 }}>
           <Col xs={12} md={12} lg={6}>
@@ -226,7 +230,7 @@ const FooterTop = () => {
           </Col>
         </Row>
       </PageRecomend>
-    </>
+    </Wrapper>
   );
 };
 
