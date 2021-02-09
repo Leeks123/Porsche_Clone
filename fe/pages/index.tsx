@@ -1,14 +1,10 @@
 import Link from 'next/link';
 import Layout from '../components/Layout';
+import Slide from '../components/LandingPage/Slide';
 
 const IndexPage = () => (
   <Layout title="Porsche Korea Clone">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
+    <Slide />
   </Layout>
 );
 

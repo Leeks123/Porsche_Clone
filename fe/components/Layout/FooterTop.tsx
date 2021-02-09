@@ -125,7 +125,7 @@ const PageRecomend = styled.div`
 `;
 const FooterTop = () => {
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
-  const collapseItemScrollPosition: number[] = [1388, 1446, 1504, 1561];
+  const collapseItemScrollPosition: number[] = [188, 246, 304, 361]; // x+ pageHeight
 
   const onChangePanel = useCallback((key: string|string[]) => {
     window.scroll({
