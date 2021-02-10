@@ -11,6 +11,10 @@ const Headline = styled.h2`
     margin: 30px auto;
     font-size: 32px;
     font-weight: 600;
+
+    @media (min-width: 1140px ) {
+        font-size: 36px;
+    }
 `;
 const StyledCol = styled(Col)`
     position: relative;
@@ -44,9 +48,6 @@ const StyledCol = styled(Col)`
                 color: #d5001c;
                 margin: 5px;
             }
-            .modelcard-name {
-                
-            }
             .modelcard-price {
                 font-size: 14px;
             }
@@ -54,12 +55,6 @@ const StyledCol = styled(Col)`
         .buttonwrapper {
             display: none;
             position: relative;
-            .myporsche {
-                
-            }
-            .allmodel {
-
-            }
         }
     }
 
