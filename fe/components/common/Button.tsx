@@ -3,11 +3,11 @@ import styled from '@emotion/styled';
 import Link from 'next/link';
 
 interface WrapperProps {
-    fontColor: string | undefined,
-    backColor: string | undefined,
-    hoverBackColor: string | undefined,
-    hoverFontColor: string | undefined,
-    size: number,
+    fontColor?: string | undefined,
+    backColor?: string | undefined,
+    hoverBackColor?: string | undefined,
+    hoverFontColor?: string | undefined,
+    size?: number,
 }
 const Wrapper = styled.div<WrapperProps>`
     display: block;
@@ -33,9 +33,9 @@ const Wrapper = styled.div<WrapperProps>`
 `;
 
 type ButtonProps = {
-    src?: string | '/',
-    text?: string | '',
-    color?: {
+    src: string | '/',
+    text: string | '',
+    color: {
         fontColor: string | 'black',
         backColor: string | 'white',
         hoverBackColor: string | 'white',
@@ -43,13 +43,15 @@ type ButtonProps = {
     },
     size?: number | 16,
     style?: object,
-    children?: ReactChild | ReactChildren | undefined
+    children: ReactChild | ReactChildren | undefined
 }
 const Button = ({
   src = '',
   text = '',
   children,
-  color = { fontColor: 'black', backColor: 'gray', hoverFontColor: '#d5001c', hoverBackColor: '#d5001c'},
+  color = {
+    fontColor: 'black', backColor: 'gray', hoverFontColor: '#d5001c', hoverBackColor: '#d5001c',
+  },
   size = 16,
   style,
 }:ButtonProps) => (

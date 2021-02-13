@@ -41,7 +41,7 @@ const FindSecondhands = () => (
   <Wrapper>
     <Headline text="포르쉐 인증 중고차 찾기" />
     <div>
-      <Carousel responsive={responsive} showDots autoPlay infinite>
+      <Carousel swipeable responsive={responsive} showDots autoPlay infinite>
         {secondhandData.map((item) => (
           <SecondhandsCard>
             <img src={item.imgSrc} alt={item.name} />
@@ -49,7 +49,9 @@ const FindSecondhands = () => (
               src="/"
               text={`${item.name} 모델 찾기`}
               size={16}
-              color={{ fontColor: 'white', hoverColor: '#d5001c', backColor: '#313639' }}
+              color={{
+                fontColor: 'white', hoverBackColor: '#d5001c', hoverFontColor: '#fff', backColor: '#313639',
+              }}
             >
               <RightOutlined />
             </Button>
