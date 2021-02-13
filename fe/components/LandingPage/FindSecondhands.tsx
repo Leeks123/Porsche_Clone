@@ -1,10 +1,9 @@
 import styled from '@emotion/styled';
 import { RightOutlined } from '@ant-design/icons';
-import { Row, Col } from 'antd';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-import React from 'react';
+import Headline from './Headline';
 import Button from '../common/Button';
 
 import { secondhandData } from '../../utils/landingpage-data';
@@ -14,14 +13,6 @@ const Wrapper = styled.div`
     margin: 30px auto;
 `;
 
-const Headline = styled.h2`
-    font-size: 32px;
-    font-weight: 600;
-
-    @media (min-width: 1140px ) {
-        font-size: 36px;
-    }
-`;
 const SecondhandsCard = styled.div`
     padding: 30px;
     img {
@@ -48,7 +39,7 @@ const responsive = {
 };
 const FindSecondhands = () => (
   <Wrapper>
-    <Headline>포르쉐 인증 중고차 찾기</Headline>
+    <Headline text="포르쉐 인증 중고차 찾기" />
     <div>
       <Carousel responsive={responsive} showDots autoPlay infinite>
         {secondhandData.map((item) => (

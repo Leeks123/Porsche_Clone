@@ -3,9 +3,10 @@ import styled from '@emotion/styled';
 import Link from 'next/link';
 
 interface WrapperProps {
-    fontColor: string,
-    hoverColor: string | undefined,
-    backColor: string,
+    fontColor: string | undefined,
+    backColor: string | undefined,
+    hoverBackColor: string | undefined,
+    hoverFontColor: string | undefined,
     size: number,
 }
 const Wrapper = styled.div<WrapperProps>`
@@ -24,30 +25,42 @@ const Wrapper = styled.div<WrapperProps>`
     background: ${(props) => props.backColor && props.backColor};
 
     &:hover {
-      ${(props) => (props.hoverColor && `background-color: ${props.hoverColor};`)}
+      ${(props) => (props.hoverBackColor && `background-color: ${props.hoverBackColor};`)}
+      span {
+        color: ${(props) => props.hoverFontColor && props.hoverFontColor};
+      }
     }
 `;
 
 type ButtonProps = {
-    src: string,
-    text: string,
-    color: {
-        fontColor: string,
-        hoverColor: string | undefined,
-        backColor: string
+    src?: string | '/',
+    text?: string | '',
+    color?: {
+        fontColor: string | 'black',
+        backColor: string | 'white',
+        hoverBackColor: string | 'white',
+        hoverFontColor: string | 'black',
     },
-    size: number,
-    children: ReactChild | ReactChildren | undefined
+    size?: number | 16,
+    style?: object,
+    children?: ReactChild | ReactChildren | undefined
 }
 const Button = ({
-  src = '', text = '', children, color = { fontColor: 'black', hoverColor: '#d5001c', backColor: 'gray' }, size = 16,
+  src = '',
+  text = '',
+  children,
+  color = { fontColor: 'black', backColor: 'gray', hoverFontColor: '#d5001c', hoverBackColor: '#d5001c'},
+  size = 16,
+  style,
 }:ButtonProps) => (
 
   <Wrapper
     fontColor={color.fontColor}
-    hoverColor={color.hoverColor}
+    hoverFontColor={color.hoverFontColor}
+    hoverBackColor={color.hoverBackColor}
     backColor={color.backColor}
     size={size}
+    style={style}
   >
     <Link href={src}>
       <a>

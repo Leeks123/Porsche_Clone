@@ -4,18 +4,15 @@ import styled from '@emotion/styled';
 import { Row, Col } from 'antd';
 import { ExportOutlined, RightOutlined } from '@ant-design/icons';
 
-import { modelCardData, modelCardProp } from '../../utils/landingpage-data';
+import { modelCardData } from '../../utils/landingpage-data';
 
-const Headline = styled.h2`
+import Headline from './Headline';
+
+const HeadlineWrapper = styled.div`
     width: 86vw;
     margin: 30px auto;
-    font-size: 32px;
-    font-weight: 600;
-
-    @media (min-width: 1140px ) {
-        font-size: 36px;
-    }
 `;
+
 const StyledCol = styled(Col)`
     position: relative;
     height: 37.5vw;
@@ -57,11 +54,6 @@ const StyledCol = styled(Col)`
             position: relative;
         }
     }
-
-    @media (min-width: 665px) {
-        
-    }
-
     @media (min-width: 768px) {
         .container {
             img {
@@ -72,9 +64,6 @@ const StyledCol = styled(Col)`
                 font-size: 30px;
                 & > span {
                     display: none;
-                }
-                .modelcard-name {
-                    
                 }
                 .modelcard-price {
                     font-size: 18px;
@@ -117,7 +106,7 @@ const ModelsCards = () => {
 
   return (
     <>
-      <Headline>Models</Headline>
+      <HeadlineWrapper><Headline text="Models" /></HeadlineWrapper>
       <Row>
         {modelCardData.map((card) => (
           <StyledCol xs={12} xl={8}>
