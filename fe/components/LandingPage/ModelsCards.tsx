@@ -112,7 +112,7 @@ const ModelsCards = () => {
           <StyledCol xs={12} xl={8}>
             <div className="container">
               {windowWidth < 768
-                ? <Link href="/"><a><img src={card.imgSrc} alt={card.name} /></a></Link>
+                ? <Link href={`/models/${card.name}/${card.name}-models`}><a><img src={card.imgSrc} alt={card.name} /></a></Link>
                 : <img src={card.imgSrc} alt={card.name} />}
               <div className="modelcard-title">
                 <RightOutlined />
@@ -130,7 +130,7 @@ const ModelsCards = () => {
                     </div>
                   </a>
                 </Link>
-                <Link href="/">
+                <Link href={`/models/${card.name}/${card.name}-models`}>
                   <a>
                     <div className="allmodel">
                       <RightOutlined />

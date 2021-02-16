@@ -32,7 +32,7 @@ const Wrapper = styled.div<WrapperProps>`
     }
 `;
 
-type ButtonProps = {
+export type ButtonProps = {
     src: string | '/',
     text: string | '',
     color: {

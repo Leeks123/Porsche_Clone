@@ -10,6 +10,7 @@ const Dimmed = styled.div`
   opacity: 0.7;
   position: absolute;
   top:117px;left:0;right:0;bottom:0;
+  z-index: 90;
 `;
 type Props = {
   children?: ReactNode
