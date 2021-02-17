@@ -50,7 +50,12 @@ const FindSecondhands = () => (
               text={`${item.name} 모델 찾기`}
               size={16}
               color={{
-                fontColor: 'white', hoverBackColor: '#d5001c', hoverFontColor: '#fff', backColor: '#313639',
+                fontColor: 'white',
+                hoverFontColor: '#fff',
+                backColor: '#313639',
+                hoverBackColor: '#d5001c',
+                borderColor: 'black',
+                hoverBorderColor: '#d5001c',
               }}
             >
               <RightOutlined />

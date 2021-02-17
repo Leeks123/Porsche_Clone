@@ -1,4 +1,3 @@
-
 import ModelBoard from './ModelBoard';
 import StickyNav from './StickyNav';
 import ConceptDesc from './ConceptDesc';
