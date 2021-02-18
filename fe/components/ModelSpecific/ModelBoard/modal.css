@@ -1,0 +1,25 @@
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  animation: moveUp 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+}
+
+/* Show Modal content*/
+@keyframes moveUp {
+  /* 하단에서 */
+  0% {
+    transform: translateY(100%);
+  }
+  /* 중앙으로 위치 */
+  100% {
+    transform: translateY(0);
+  }
+}

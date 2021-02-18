@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { useState, useRef } from 'react';
+import { useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { RightOutlined } from '@ant-design/icons';
 import { jsx } from '@emotion/react';
@@ -10,6 +10,7 @@ import {
   buttonColor, Disclaimer,
 } from '../ModelBoard/styles';
 import Button from '../../../components/common/Button';
+import StyledModal from './StyledModal';
 
 const responsive = {
   desktop: {
@@ -31,9 +32,13 @@ const responsive = {
 
 const ModelBoard = () => {
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
+  const [modalState, setModal] = useState(false);
+  const openModal = useCallback(() => {
+    setModal(true);
+  }, []);
 
   return (
-    <Wrapper>
+    <Wrapper id="modelboard">
       <Background />
       <StyledCarousel
         swipeable
@@ -86,6 +91,7 @@ const ModelBoard = () => {
                 text="기술사양"
                 color={buttonColor}
                 style={windowWidth < 768 ? { width: '100%' } : {}}
+                onClick={openModal}
               >
                 <RightOutlined />
               </Button>
@@ -109,6 +115,7 @@ const ModelBoard = () => {
           </SpecContainer>
         ))}
       </StyledCarousel>
+      <StyledModal isOpen={modalState} setState={setModal} />
       <Disclaimer>
         * 국내 출시 이전 차량의 경우 국내 공인 연비 정보 및 타이어 에너지소비효율 정보가 존재하지 않습니다.
         <br />
