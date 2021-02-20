@@ -5,7 +5,7 @@ import { Row, Col } from 'antd';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-import Headline from './Headline';
+import Headline from '../common/Headline';
 import Button from '../common/Button';
 
 const Wrapper = styled.div`

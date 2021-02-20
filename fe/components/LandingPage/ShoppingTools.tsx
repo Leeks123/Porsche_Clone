@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { RightOutlined } from '@ant-design/icons';
 import { Row, Col } from 'antd';
 
-import Headline from './Headline';
+import Headline from '../common/Headline';
 import Button from '../common/Button';
 
 const Wrapper = styled.div`

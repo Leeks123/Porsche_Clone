@@ -3,7 +3,7 @@ import { RightOutlined } from '@ant-design/icons';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-import Headline from './Headline';
+import Headline from '../common/Headline';
 import Button from '../common/Button';
 
 import { secondhandData } from '../../utils/landingpage-data';

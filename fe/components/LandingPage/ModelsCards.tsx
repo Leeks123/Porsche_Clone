@@ -6,7 +6,7 @@ import { ExportOutlined, RightOutlined } from '@ant-design/icons';
 
 import { modelCardData } from '../../utils/landingpage-data';
 
-import Headline from './Headline';
+import Headline from '../common/Headline';
 
 const HeadlineWrapper = styled.div`
     width: 86vw;

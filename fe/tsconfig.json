@@ -17,6 +17,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "esnext",
+    "allowSyntheticDefaultImports": true,
     // "jsxImportSource": "@emotion/react"
   },
   "exclude": ["node_modules"],
