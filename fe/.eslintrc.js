@@ -30,7 +30,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/anchor-has-content': 'off',
-    'react/jsx-filename-extension': [2, { extensions: ['.tsx', '.ts', '.js'] }],
+    'react/jsx-filename-extension': [2, { extensions: ['.tsx', '.ts', '.js', '.jsx'] }],
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
     'react/prop-types': 'off',
