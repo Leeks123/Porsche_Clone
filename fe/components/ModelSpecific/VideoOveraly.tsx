@@ -15,11 +15,9 @@ const Wrapper = styled.section<WrapperProp>`
     height: 100vh;
     overflow: hidden;
 
-    // ${(props) => (props.onTop ? 'position: sticky;' : 'position: relative;')}
     position: sticky;
-    top: 0;
+    top: 60px;
     margin-top: 20px;
-    margin-bottom: 200px;
 `;
 const Background = styled.div`
     width: 100%;
@@ -86,15 +84,13 @@ const VideoOveraly = () => {
       // window.scrollY : 얼마나 내렸는지
       // document.documentElement.clientHeight : 화면에 보이는 길이
       // document.documentElement.scrollHeight : 총길이
-    //   console.log(
-    //     window.scrollY,
-    //     document.documentElement.clientHeight,
-    //     document.documentElement.scrollHeight,
-    //     wrapper.current?.getBoundingClientRect().top,
-    //   );
-      const elTopPos = wrapper.current?.getBoundingClientRect().top;
-      if (elTopPos === 0) {
-        // console.log('on top');
+      console.log(
+        window.scrollY,
+        wrapper.current?.getBoundingClientRect().top,
+      );
+      const elTopPos = wrapper.current.getBoundingClientRect().top;
+      if (elTopPos <= 60) {
+        console.log('on top');
         setElTop(true);
         video.current?.play();
       } else {
