@@ -37,6 +37,7 @@ const Overlay = styled.div<OverlayProp>`
     height: 100vh;
 
     ${(props) => (props.onTop ? 'overflow: scroll;' : 'overflow: hidden;')}
+    // overflow: scroll;
     
     .overlay-top {
         height: 100vh;
@@ -84,13 +85,13 @@ const VideoOveraly = () => {
       // window.scrollY : 얼마나 내렸는지
       // document.documentElement.clientHeight : 화면에 보이는 길이
       // document.documentElement.scrollHeight : 총길이
-      console.log(
-        window.scrollY,
-        wrapper.current?.getBoundingClientRect().top,
-      );
+      // console.log(
+      //   window.scrollY,
+      //   wrapper.current?.getBoundingClientRect().top,
+      // );
       const elTopPos = wrapper.current.getBoundingClientRect().top;
-      if (elTopPos <= 60) {
-        console.log('on top');
+      if (elTopPos <= 100) {
+        // console.log('on top');
         setElTop(true);
         video.current?.play();
       } else {
