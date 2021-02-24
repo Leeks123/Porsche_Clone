@@ -1,0 +1,93 @@
+/* eslint-disable no-nested-ternary */
+import { useState, useCallback } from 'react';
+import styled from '@emotion/styled';
+import { CheckCircleOutlined, SyncOutlined } from '@ant-design/icons';
+
+const Wrapper = styled.div`
+    padding: 8px;
+`;
+const Title = styled.div`
+    font-size: 16px;
+    font-weight: 200;
+`;
+const Colors = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`;
+type ColorProps = {
+    color: string, isSelected: boolean
+}
+const Color = styled.span<ColorProps>`
+    width: ${(props) => (props.isSelected ? '65px' : '60px')};
+    height: ${(props) => (props.isSelected ? '65px' : '60px')};
+    background-color: ${(props) => props.color && `${props.color}`};
+    
+    position: relative;
+    
+    ${(props) => (props.isSelected
+    ? 'box-shadow: 1px 1px 5px 1px gray; border: none; z-index: 5'
+    : 'border: 1px solid white;')};
+
+    .anticon {
+        font-size: 20px;
+        border-radius: 50%;
+        position: relative;
+        top: 60%;
+        left: 60%;
+    }
+    .check {
+        border: 1px solid white;
+        background: red;
+        color: white;
+    }
+    .loading {
+        border: 3px solid lightgray;
+        background: lightgray;
+        font-size: 16px;
+        color: gray;
+    }
+`;
+
+type Props = {
+    text: string,
+}
+const ColorBox = ({ text }:Props) => {
+  const colors = ['white', 'red', 'yellow', 'green', 'black', 'blue'];
+  const imgLoaded = false;
+  const [selectColor, setSelectColor] = useState('');
+  const onSelect = useCallback((e) => {
+    console.log(e.target.id);
+    setSelectColor(e.target.id);
+  }, []);
+  return (
+    <Wrapper>
+      <Title>{text}</Title>
+      <Colors>
+        {colors.map((color) => {
+          if (color === selectColor) {
+            return (
+              <Color color={color} isSelected id={color} onClick={onSelect}>
+                { true
+                  ? imgLoaded
+                    ? <CheckCircleOutlined className="check" />
+                    : <SyncOutlined spin className="loading" />
+                  : ''}
+              </Color>
+            );
+          }
+          return (
+            <Color color={color} isSelected={false} id={color} onClick={onSelect}>
+              { false
+                ? imgLoaded
+                  ? <CheckCircleOutlined className="check" />
+                  : <SyncOutlined spin className="loading" />
+                : ''}
+            </Color>
+          );
+        })}
+      </Colors>
+    </Wrapper>
+  );
+};
+
+export default ColorBox;

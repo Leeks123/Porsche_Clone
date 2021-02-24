@@ -83,10 +83,10 @@ const StickyNav = () => {
       <ul>
         <li><a href="#nav1" id="1" onClick={onClick}>dskfjdskf</a></li>
         <li><a href="#nav2" id="2" onClick={onClick}>dskfjdskf</a></li>
-        <li><a href="#nav3" id="3" onClick={onClick}>dskfjdskf</a></li>
-        <li><a href="#nav4" id="4" onClick={onClick}>dskfjdskf</a></li>
-        <li><a href="#nav5" id="5" onClick={onClick}>dskfjdskf</a></li>
-        <li><a href="#nav6" id="6" onClick={onClick}>dskfjdskf</a></li>
+        <li><a href="#nav3" id="3" onClick={onClick}>모델 및 사양</a></li>
+        <li><a href="#nav4" id="4" onClick={onClick}>나만의 포르쉐 만들기</a></li>
+        <li><a href="#nav5" id="5" onClick={onClick}>갤러리</a></li>
+        <li><a href="#nav6" id="6" onClick={onClick}>다음 단계</a></li>
       </ul>
     </Wrapper>
   );
