@@ -17,7 +17,6 @@ const Wrapper = styled.section<WrapperProp>`
 
     position: sticky;
     top: 60px;
-    margin-top: 20px;
 `;
 const Background = styled.div`
     width: 100%;

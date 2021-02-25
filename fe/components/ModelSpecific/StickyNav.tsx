@@ -10,33 +10,40 @@ const Wrapper = styled.div<WrapperProps>`
   height: 60px;
   background-color: white;
   z-index: 20;
-  overflow: scroll;
-  ul {
+  box-shadow: 0px 1px 5px lightgray;
+  & > div {
     width: 86vw;
     margin: 0 auto;
-    padding: 0;
-    display: flex;
-
-    li {
-      margin: 0 10px;
-      padding: 15px 0 5px;
-      list-style: none;
-      font-size: 16px;
-      color: black;
-
-      a {
+    overflow: scroll;
+    ul {
+      width: 1000px;
+      padding: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      li {
+        height: 48px;
+        margin: 0 10px;
+        padding: 15px 0 5px;
+        list-style: none;
+        font-size: 16px;
         color: black;
-        &:hover {
-          color: #d5011c;
+  
+        a {
+          color: black;
+          &:hover {
+            color: #d5011c;
+          }
         }
+        ${(props) => props.active && `&:nth-of-type(${props.active}) { border-bottom: 3px solid #d5011c; }`}
       }
-
-      ${(props) => props.active && `&:nth-of-type(${props.active}) { border-bottom: 3px solid #d5011c; }`}
     }
   }
 `;
 
-const StickyNav = () => {
+type StickyNavProps = {
+  navList: string[],
+}
+const StickyNav = ({ navList }:StickyNavProps) => {
   const [activeNav, setActiveNav] = useState(1);
   const [scrollPos, setScrollPos] = useState(0);
   const [sectionPosition, setSectionPosition] = useState<number[]>([]);
@@ -80,14 +87,13 @@ const StickyNav = () => {
 
   return (
     <Wrapper active={activeNav}>
-      <ul>
-        <li><a href="#nav1" id="1" onClick={onClick}>dskfjdskf</a></li>
-        <li><a href="#nav2" id="2" onClick={onClick}>dskfjdskf</a></li>
-        <li><a href="#nav3" id="3" onClick={onClick}>모델 및 사양</a></li>
-        <li><a href="#nav4" id="4" onClick={onClick}>나만의 포르쉐 만들기</a></li>
-        <li><a href="#nav5" id="5" onClick={onClick}>갤러리</a></li>
-        <li><a href="#nav6" id="6" onClick={onClick}>다음 단계</a></li>
-      </ul>
+      <div>
+        <ul>
+          {navList.map((v, i) => (
+            <li><a href={`#nav${i + 1}`} id={`${i + 1}`} onClick={onClick}>{v}</a></li>
+          ))}
+        </ul>
+      </div>
     </Wrapper>
   );
 };
