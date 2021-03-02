@@ -6,14 +6,15 @@ import ModelSpecific from '../../components/ModelSpecific';
 
 const Model = () => {
   const router = useRouter();
+  const model = router.query?.model[0];
   return (
     <Layout>
       <Head>
         <title>
-          {`포르쉐 모델 | ${router.query?.model[0]}`}
+          {`포르쉐 모델 | ${model}`}
         </title>
       </Head>
-      <main><ModelSpecific /></main>
+      <main><ModelSpecific model={model} /></main>
     </Layout>
   );
 };

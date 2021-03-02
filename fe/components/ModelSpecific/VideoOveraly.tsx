@@ -74,7 +74,12 @@ const buttonColor:ButtonProps['color'] = {
   hoverBorderColor: 'transparent',
 };
 
-const VideoOveraly = () => {
+type Props = {
+  data: {
+    poster:string, src:string, title:string, content:string,
+  }
+}
+const VideoOveraly = ({ data }:Props) => {
   const wrapper = useRef<HTMLDivElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const [elTop, setElTop] = useState(false);
@@ -111,22 +116,21 @@ const VideoOveraly = () => {
           crossOrigin=""
           width="100%"
           height="100vh"
-          poster="https://files.porsche.com/filestore/video/multimedia/none/modelseries-718-models-overview-design-loop/zoom/d5cda61c-095d-11eb-80ce-005056bbdc38;sE;twebp/porsche-image.webp"
+          poster={data.poster}
           loop
           muted
           preload="none"
         >
-          <source src="https://files.porsche.com/filestore/video/multimedia/none/modelseries-718-models-overview-design-loop/video-mp4/92fb8d17-1205-11eb-80ce-005056bbdc38/porsche-video.mp4" type="video/mp4" />
+          <source src={data.src} type="video/mp4" />
         </video>
       </Background>
       <Overlay onTop={elTop}>
         <div className="overlay-top" />
         <div className="overlay-bottom">
           <div className="overlay-bottom-container">
-            <h1>디자인.</h1>
+            <h1>{data.title}</h1>
             <p>
-              정교하며, 과하지 않습니다. 자신감 넘치며, 구속받지 않습니다. 낮고, 와이드하며, 매끈합니다.
-              718 모델의 익스 테리어 디자인은 스포티하면서도 독특한 에지와 함께 뚜렷하게 정의된 전통적인 윤곽으로 차별화된 특징을 선보입니다.
+              {data.content}
             </p>
             <Button src="" text="자세히 보기" color={buttonColor}><PlusOutlined /></Button>
           </div>

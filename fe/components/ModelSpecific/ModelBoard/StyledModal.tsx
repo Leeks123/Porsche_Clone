@@ -138,8 +138,9 @@ const Collapses = styled.div`
 type Props = {
     isOpen: boolean,
     setState: Dispatch<SetStateAction<boolean>>,
+    data: any,
 }
-const StyledModal = ({ isOpen, setState }:Props) => {
+const StyledModal = ({ isOpen, setState, data }:Props) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -178,28 +179,24 @@ const StyledModal = ({ isOpen, setState }:Props) => {
         <Header>
           <ModalCloseButton type="button" onClick={closeModal}>x</ModalCloseButton>
           <div className="modalheader-container">
-            <h1>Taycan</h1>
+            <h1>{data.name}</h1>
             <div className="data-content-container">
               <div className="data-content">
-                <h2>dfjkf</h2>
-                <p>jsifjsifjisdjfidjsf</p>
+                <h2>{data.price}</h2>
+                <p>가격</p>
               </div>
 
               <div className="data-content">
-                <h2>dfjkf</h2>
-                <p>jsifjsifjisdjfiafdsfdsfdsfdsfdssdfdsdjsf</p>
+                <h2>{`${data.powerunit['Power (kW)']} / ${data.powerunit['Power (PS)']}`}</h2>
+                <p>Power (kW)/Power (PS)</p>
               </div>
               <div className="data-content">
-                <h2>dfjdsfdsfdsfdskf</h2>
-                <p>jsifjsifjisdjfiddsfdsfdsfjsf</p>
+                <h2>{data.performance['Acceleration 0 - 100 km/h']}</h2>
+                <p>Acceleration 0 - 100 km/h</p>
               </div>
               <div className="data-content">
-                <h2>dfjkf</h2>
-                <p>jsifjsifsafdsfasjisdjfidjsf</p>
-              </div>
-              <div className="data-content">
-                <h2>dfjkf</h2>
-                <p>dsfdsf</p>
+                <h2>{data.performance.Topspeed}</h2>
+                <p>Top Speed</p>
               </div>
             </div>
           </div>
@@ -218,19 +215,19 @@ const StyledModal = ({ isOpen, setState }:Props) => {
               <div className="model-sizes">
                 <div className="model-size-content">
                   <div className="model-size-title">Height</div>
-                  <div className="model-size-value">dsfdsfdsf</div>
+                  <div className="model-size-value">{data.body.Height}</div>
                 </div>
                 <div className="model-size-content">
                   <div className="model-size-title">Width</div>
-                  <div className="model-size-value">dsfdsfdsf</div>
+                  <div className="model-size-value">{data.body.Width}</div>
                 </div>
                 <div className="model-size-content">
                   <div className="model-size-title">Length</div>
-                  <div className="model-size-value">dsfdsfdsf</div>
+                  <div className="model-size-value">{data.body.Length}</div>
                 </div>
                 <div className="model-size-content">
                   <div className="model-size-title">Wheelbase</div>
-                  <div className="model-size-value">dsfdsfdsf</div>
+                  <div className="model-size-value">{data.body.Wheelbase}</div>
                 </div>
               </div>
             </div>
@@ -240,65 +237,69 @@ const StyledModal = ({ isOpen, setState }:Props) => {
           <Collapse bordered={false} expandIconPosition="right">
             <Panel header="Power Unit" key="1">
               <ul>
-                <li>
-                  <div className="collapse-key">dsfdsfds</div>
-                  <div className="collapse-value">dsfjskdfjkdsjf</div>
-                </li>
-                <li>
-                  <div className="collapse-key">dsfdsfds</div>
-                  <div className="collapse-value">dsfjskdfjkdsjf</div>
-                </li>
-                <li>
-                  <div className="collapse-key">dsfdsfds</div>
-                  <div className="collapse-value">dsfjskdfjkdsjf</div>
-                </li>
+                {Object.keys(data.powerunit).map((key) => (
+                  <li>
+                    <div className="collapse-key">{key}</div>
+                    <div className="collapse-value">{data.powerunit[key]}</div>
+                  </li>
+                ))}
               </ul>
             </Panel>
-            <Panel header="Charging" key="2">
+            <Panel header="Performance" key="2">
               <ul>
-                <li>
-                  <div className="collapse-key">dsfdsfds</div>
-                  <div className="collapse-value">dsfjskdfjkdsjf</div>
-                </li>
+                {Object.keys(data.performance).map((key) => (
+                  <li>
+                    <div className="collapse-key">{key}</div>
+                    <div className="collapse-value">{data.performance[key]}</div>
+                  </li>
+                ))}
               </ul>
             </Panel>
-            <Panel header="Performance" key="3">
+            <Panel header="Body" key="3">
               <ul>
-                <li>
-                  <div className="collapse-key">dsfdsfds</div>
-                  <div className="collapse-value">dsfjskdfjkdsjf</div>
-                </li>
+                {Object.keys(data.body).map((key) => (
+                  <li>
+                    <div className="collapse-key">{key}</div>
+                    <div className="collapse-value">{data.body[key]}</div>
+                  </li>
+                ))}
               </ul>
             </Panel>
-            <Panel header="Body" key="4">
+            <Panel header="Capacities" key="4">
               <ul>
-                <li>
-                  <div className="collapse-key">dsfdsfds</div>
-                  <div className="collapse-value">dsfjskdfjkdsjf</div>
-                </li>
+                {Object.keys(data.capacity).map((key) => (
+                  <li>
+                    <div className="collapse-key">{key}</div>
+                    <div className="collapse-value">{data.capacity[key]}</div>
+                  </li>
+                ))}
               </ul>
             </Panel>
-            <Panel header="Capacities" key="5">
+            <Panel header="Service and Warranty" key="5">
               <ul>
-                <li>
-                  <div className="collapse-key">dsfdsfds</div>
-                  <div className="collapse-value">dsfjskdfjkdsjf</div>
-                </li>
+                {Object.keys(data.warranty).map((key) => (
+                  <li>
+                    <div className="collapse-key">{key}</div>
+                    <div className="collapse-value">{data.warranty[key]}</div>
+                  </li>
+                ))}
               </ul>
             </Panel>
-            <Panel header="Service and Warranty" key="6">
+            <Panel header="Consumption / Emissions" key="6">
               <ul>
-                <li>
-                  <div className="collapse-key">dsfdsfds</div>
-                  <div className="collapse-value">dsfjskdfjkdsjf</div>
-                </li>
+                {Object.keys(data.consumEmit).map((key) => (
+                  <li>
+                    <div className="collapse-key">{key}</div>
+                    <div className="collapse-value">{data.consumEmit[key]}</div>
+                  </li>
+                ))}
               </ul>
             </Panel>
             <Panel header="가격" key="7">
               <ul>
                 <li>
-                  <div className="collapse-key">dsfdsfds</div>
-                  <div className="collapse-value">dsfjskdfjkdsjf</div>
+                  <div className="collapse-key">포르쉐 더블 클러치(PDK)</div>
+                  <div className="collapse-value">{data.price}</div>
                 </li>
               </ul>
             </Panel>

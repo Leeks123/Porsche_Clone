@@ -11,6 +11,7 @@ import {
 } from '../ModelBoard/styles';
 import Button from '../../../components/common/Button';
 import StyledModal from './StyledModal';
+import { ArrowProps } from 'react-multi-carousel';
 
 const responsive = {
   desktop: {
@@ -30,9 +31,10 @@ const responsive = {
   },
 };
 
-const ModelBoard = () => {
+const ModelBoard = ({ data }) => {
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
   const [modalState, setModal] = useState(false);
+  const [modelType, setModelType] = useState(0);
   const openModal = useCallback(() => {
     setModal(true);
   }, []);
@@ -45,39 +47,47 @@ const ModelBoard = () => {
         draggable
         showDots
         responsive={responsive}
+        afterChange={(previousSlide, { currentSlide }) => {
+          console.log(previousSlide, currentSlide);
+          if (currentSlide === 0 || currentSlide === data.length - 1) {
+            setModelType(previousSlide);
+          } else {
+            setModelType(currentSlide);
+          }
+        }}
         ssr
       >
-        {[1, 2, 3, 4].map((item) => (
+        {data.map((item) => (
           <SpecContainer>
             <SpecHeadline>
               <div className="headline-flag">new</div>
-              <div className="headline-title">Taycan</div>
-              <div className="headline-copy">tba</div>
+              <div className="headline-title">{item.name}</div>
+              <div className="headline-copy">{item.price}</div>
             </SpecHeadline>
             <ImageContainer>
-              <img src="https://files.porsche.com/filestore/image/multimedia/none/j1-taycan-modelexplorer-01/normal/8beac980-c1b3-11ea-80ca-005056bbdc38;sP;twebp/porsche-normal.webp" alt="" />
+              <img src={item.img} alt="" />
             </ImageContainer>
             <SpecDesc>
               <ul>
                 <li>
                   <div className="data-title">
-                    dsfdsf1
+                    {`${item.powerunit['Power (kW)']} / ${item.powerunit['Power (PS)']}`}
                   </div>
                   <div className="data-desc">
-                    Acceleration 0 - 100 km/h with Launch Control
+                    Power(kW) / Power(PS)
                   </div>
                 </li>
                 <li>
                   <div className="data-title">
-                    dsfdsf2
+                    {item.performance['Acceleration 0 - 100 km/h']}
                   </div>
                   <div className="data-desc">
-                    Overboost Power with Launch Control up to (kW)/Overboost Power with Launch Control up to (PS)
+                    Acceleration 0 - 100km/h
                   </div>
                 </li>
                 <li>
                   <div className="data-title">
-                    dsfdsf3
+                    {item.performance.Topspeed}
                   </div>
                   <div className="data-desc">
                     Top speed
@@ -115,7 +125,7 @@ const ModelBoard = () => {
           </SpecContainer>
         ))}
       </StyledCarousel>
-      <StyledModal isOpen={modalState} setState={setModal} />
+      <StyledModal isOpen={modalState} setState={setModal} data={data[modelType]} />
       <Disclaimer>
         * 국내 출시 이전 차량의 경우 국내 공인 연비 정보 및 타이어 에너지소비효율 정보가 존재하지 않습니다.
         <br />

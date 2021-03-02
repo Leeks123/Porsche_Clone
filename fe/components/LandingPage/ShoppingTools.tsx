@@ -39,7 +39,7 @@ const ShoppingTools = () => (
             src="/"
             text="포르쉐 모델 자세히 보기"
             color={{
-              fontColor: 'white', backColor: 'transparent', hoverFontColor: '#d5001c', hoverBackColor: 'transparent',
+              fontColor: 'white', backColor: 'transparent', hoverFontColor: '#d5001c', hoverBackColor: 'transparent', borderColor: 'transparent', hoverBorderColor: 'transparent',
             }}
             size={20}
             style={{
@@ -58,11 +58,11 @@ const ShoppingTools = () => (
             src="/"
             text="포르쉐 센터 찾기"
             color={{
-              fontColor: 'white', backColor: 'transparent', hoverFontColor: '#d5001c', hoverBackColor: 'transparent',
+              fontColor: 'white', backColor: 'transparent', hoverFontColor: '#d5001c', hoverBackColor: 'transparent', borderColor: 'transparent', hoverBorderColor: 'transparent',
             }}
             size={20}
             style={{
-              top: '-75px',
+              top: '-85px',
               fontWeight: '600',
             }}
           >
@@ -77,11 +77,11 @@ const ShoppingTools = () => (
             src="/"
             text="포르쉐 파이낸셜 서비스"
             color={{
-              fontColor: 'white', backColor: 'transparent', hoverFontColor: '#d5001c', hoverBackColor: 'transparent',
+              fontColor: 'white', backColor: 'transparent', hoverFontColor: '#d5001c', hoverBackColor: 'transparent', borderColor: 'transparent', hoverBorderColor: 'transparent',
             }}
             size={20}
             style={{
-              top: '-75px',
+              top: '-85px',
               fontWeight: '600',
             }}
           >
@@ -96,11 +96,11 @@ const ShoppingTools = () => (
             src="/"
             text="포르쉐 익스클루시브 매뉴팩투어"
             color={{
-              fontColor: 'white', backColor: 'transparent', hoverFontColor: '#d5001c', hoverBackColor: 'transparent',
+              fontColor: 'white', backColor: 'transparent', hoverFontColor: '#d5001c', hoverBackColor: 'transparent', borderColor: 'transparent', hoverBorderColor: 'transparent',
             }}
             size={20}
             style={{
-              top: '-75px',
+              top: '-85px',
               fontWeight: '600',
             }}
           >
