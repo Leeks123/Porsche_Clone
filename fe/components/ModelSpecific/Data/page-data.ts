@@ -115,7 +115,7 @@ const pageData = {
     ],
 
     navlist: [
-      '디자인', '퍼포먼스', '헤리티지 디자인 에디션', '나만의 포르쉐 만들기', '갤러리', '다음 단계',
+      '', '디자인', '퍼포먼스', '헤리티지 디자인 에디션', '나만의 포르쉐 만들기', '갤러리', '다음 단계',
     ],
   },
   '911TurboS': {
@@ -130,9 +130,9 @@ const pageData = {
         poster: 'https://files.porsche.com/filestore/video/multimedia/none/992-turbo-performance-intro-loop/zoom/aed562fe-68ee-11ea-80c8-005056bbdc38/porsche-image.jpg',
         src: 'https://files.porsche.com/filestore/video/multimedia/none/992-turbo-performance-intro-loop/video-mp4/690bf638-68ee-11ea-80c8-005056bbdc38/porsche-video.mp4',
         title: '퍼포먼스',
-        content: `포르쉐 엔지니어에게 결승선은 끝이 아닙니다. 개선이 필요한 부분을 찾아 끊임없이 탐구해나가는 긴 여정에서 잠시 머무는 곳일 뿐입니다. <br/>
-        새로운 세대의 엔진: VTG를 탑재한 6 기통 트윈 터보 수평대향 엔진 <br/>
-        강력한 엔진 사운드를 위한 스포츠 배기 시스템 <br/>
+        content: `포르쉐 엔지니어에게 결승선은 끝이 아닙니다. 개선이 필요한 부분을 찾아 끊임없이 탐구해나가는 긴 여정에서 잠시 머무는 곳일 뿐입니다.
+        새로운 세대의 엔진: VTG를 탑재한 6 기통 트윈 터보 수평대향 엔진
+        강력한 엔진 사운드를 위한 스포츠 배기 시스템
         새로워진 8단 포르쉐 더블 클러치 (PDK: Porsche Doppelkupplung) 
         `,
       },
@@ -140,8 +140,8 @@ const pageData = {
         src: 'https://files.porsche.com/filestore/video/china/none/992-turbo-design-intro-loop/video-mp4/55f9b458-4cd6-11ea-80c8-005056bbdc38/porsche-video.mp4',
         poster: 'https://files.porsche.com/filestore/video/china/none/992-turbo-design-intro-loop/zoom/329bd9ca-a1b8-11ea-80ca-005056bbdc38/porsche-image.jpg',
         title: '디자인',
-        content: `후면과 전면을 거쳐 911 터보 S 특유의 탄탄한 차체를 이루는 측면에 이르기까지, 시대를 초월한 디자인과 디테일은 앞으로 나아갈 미래의 길을 제시합니다. <br/>
-        라이트 스트립 <br/>
+        content: `후면과 전면을 거쳐 911 터보 S 특유의 탄탄한 차체를 이루는 측면에 이르기까지, 시대를 초월한 디자인과 디테일은 앞으로 나아갈 미래의 길을 제시합니다.
+        라이트 스트립
         가변 프론트 스포일러`,
       },
       {
@@ -149,8 +149,8 @@ const pageData = {
         src: 'https://files.porsche.com/filestore/video/multimedia/none/992-turbo-comfort-intro-loop/video-mp4/5ac19bf6-68f0-11ea-80c8-005056bbdc38/porsche-video.mp4',
         title: '편의사항',
         content: `모든 것이 새롭다거나 모든 것이 똑같지도 않습니다. 새로운 911 터보 S의 인테리어에는 45년이 넘는 포르쉐 특징과 현재의 가능성이 함께 녹아 있습니다. <br/>
-        10.9인치 터치 스크린 <br/>
-        Porsche Connect <br/>
+        10.9인치 터치 스크린. 
+        Porsche Connect
         'WET' 모드`,
       },
     ],

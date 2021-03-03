@@ -1,7 +1,10 @@
 /* eslint-disable no-nested-ternary */
 import { useState, useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import styled from '@emotion/styled';
 import { CheckCircleOutlined, SyncOutlined } from '@ant-design/icons';
+
+import modelspecSlice from '../../../redux/reducers/modelspec';
 
 const Wrapper = styled.div`
     padding: 8px;
@@ -26,7 +29,7 @@ const Color = styled.span<ColorProps>`
     
     ${(props) => (props.isSelected
     ? 'box-shadow: 1px 1px 5px 1px gray; border: none; z-index: 5'
-    : 'border: 1px solid white;')};
+    : 'border: 1px solid lightgray;')};
 
     .anticon {
         font-size: 20px;
@@ -50,21 +53,31 @@ const Color = styled.span<ColorProps>`
 
 type Props = {
     text: string,
+    colors: string[],
 }
-const ColorBox = ({ text }:Props) => {
-  const colors = ['white', 'red', 'yellow', 'green', 'black', 'blue'];
-  const imgLoaded = false;
-  const [selectColor, setSelectColor] = useState('');
+const ColorBox = ({ text, colors }:Props) => {
+  const imgLoaded = true;
+  const dispatch = useDispatch();
+  const selectedColor = useSelector((state) => {
+    if (text !== '') {
+      return state.modelspec.custom.exterior;
+    }
+    return state.modelspec.custom.interior;
+  });
   const onSelect = useCallback((e) => {
     console.log(e.target.id);
-    setSelectColor(e.target.id);
+    if (text !== '') {
+      dispatch(modelspecSlice.actions.exteriorColorChange(e.target.id));
+    } else {
+      dispatch(modelspecSlice.actions.interiorColorChange(e.target.id));
+    }
   }, []);
   return (
     <Wrapper>
       <Title>{text}</Title>
       <Colors>
         {colors.map((color) => {
-          if (color === selectColor) {
+          if (color === selectedColor) {
             return (
               <Color color={color} isSelected id={color} onClick={onSelect}>
                 { true

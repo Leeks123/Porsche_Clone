@@ -39,13 +39,20 @@ const responsive = {
   },
 };
 
-const Gallery = () => {
-  const [category, setCategory] = useState('');
+type ImagesProp = {
+  type: string, src: string,
+}
+type Props = {
+  data:ImagesProp[],
+  model:string,
+}
+const Gallery = ({ data, model }:Props) => {
+  const [category, setCategory] = useState('all');
   const [isZoomed, setZoomed] = useState(false);
 
-  function onChange(value:string|any):void {
+  const onChange = useCallback((value:string|any):void => {
     setCategory(value);
-  }
+  }, []);
   const onClick = useCallback(() => {
     setZoomed(true);
   }, []);
@@ -62,24 +69,24 @@ const Gallery = () => {
         </StyledSelect>
       </GalleryHeader>
 
-      {isZoomed && <ZoomedImages setZoomed={setZoomed} />}
+      {isZoomed && <ZoomedImages setZoomed={setZoomed} data={data} model={model}/>}
       <div>
-        {category === 'image' && (
+        {category === 'all' && (
         <Carousel responsive={responsive}>
           <div>
-            <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/jdp-2016-982-718-bo-gallery-exterior-28/zoom2/3deeeb7a-96d0-11e6-9f1b-0019999cd470;sK;twebp/porsche-zoom2.webp" alt="" style={{ width: '100%' }} onClick={onClick} />
-            <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/jdp-2016-982-718-bo-gallery-exterior-28/zoom2/3deeeb7a-96d0-11e6-9f1b-0019999cd470;sK;twebp/porsche-zoom2.webp" alt="" style={{ width: '50%' }} onClick={onClick} />
-            <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/jdp-2016-982-718-bo-gallery-exterior-28/zoom2/3deeeb7a-96d0-11e6-9f1b-0019999cd470;sK;twebp/porsche-zoom2.webp" alt="" style={{ width: '50%' }} onClick={onClick} />
+            <img src={data[0].src} alt="" style={{ width: '100%' }} onClick={onClick} />
+            <img src={data[1].src} alt="" style={{ width: '50%' }} onClick={onClick} />
+            <img src={data[2].src} alt="" style={{ width: '50%' }} onClick={onClick} />
           </div>
           <div>
-            <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/jdp-2016-982-718-bo-gallery-exterior-28/zoom2/3deeeb7a-96d0-11e6-9f1b-0019999cd470;sK;twebp/porsche-zoom2.webp" alt="" style={{ width: '50%' }} onClick={onClick} />
-            <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/jdp-2016-982-718-bo-gallery-exterior-28/zoom2/3deeeb7a-96d0-11e6-9f1b-0019999cd470;sK;twebp/porsche-zoom2.webp" alt="" style={{ width: '50%' }} onClick={onClick} />
-            <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/jdp-2016-982-718-bo-gallery-exterior-28/zoom2/3deeeb7a-96d0-11e6-9f1b-0019999cd470;sK;twebp/porsche-zoom2.webp" alt="" style={{ width: '100%' }} onClick={onClick} />
+            <img src={data[3].src} alt="" style={{ width: '50%' }} onClick={onClick} />
+            <img src={data[4].src} alt="" style={{ width: '50%' }} onClick={onClick} />
+            <img src={data[5].src} alt="" style={{ width: '100%' }} onClick={onClick} />
           </div>
           <div>
-            <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/jdp-2016-982-718-bo-gallery-exterior-28/zoom2/3deeeb7a-96d0-11e6-9f1b-0019999cd470;sK;twebp/porsche-zoom2.webp" alt="" style={{ width: '100%' }} onClick={onClick} />
-            <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/jdp-2016-982-718-bo-gallery-exterior-28/zoom2/3deeeb7a-96d0-11e6-9f1b-0019999cd470;sK;twebp/porsche-zoom2.webp" alt="" style={{ width: '50%' }} onClick={onClick} />
-            <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/jdp-2016-982-718-bo-gallery-exterior-28/zoom2/3deeeb7a-96d0-11e6-9f1b-0019999cd470;sK;twebp/porsche-zoom2.webp" alt="" style={{ width: '50%' }} onClick={onClick} />
+            <img src={data[6].src} alt="" style={{ width: '100%' }} onClick={onClick} />
+            <img src={data[7].src} alt="" style={{ width: '50%' }} onClick={onClick} />
+            <img src={data[8].src} alt="" style={{ width: '50%' }} onClick={onClick} />
           </div>
         </Carousel>
         )}

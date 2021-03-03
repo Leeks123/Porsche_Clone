@@ -60,28 +60,26 @@ const responsive = {
 
 type Props = {
     setZoomed: (arg:boolean) => void,
+    data: object[],
+    model: string,
 }
-const ZoomedImages = ({ setZoomed }:Props) => {
+const ZoomedImages = ({ setZoomed, data, model }:Props) => {
   const onClose = useCallback(() => {
     setZoomed(false);
   }, []);
   return (
     <Wrapper>
       <Top>
-        <div className="zoomedImages-title">dfkjdksf</div>
+        <div className="zoomedImages-title">{model}</div>
         <div className="zoomedImages-close" onClick={onClose}><CloseOutlined /></div>
       </Top>
       <Container>
         <Carousel responsive={responsive}>
-          <ImageWrapper>
-            <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/jdp-2016-982-718-bo-gallery-exterior-28/zoom2/3deeeb7a-96d0-11e6-9f1b-0019999cd470;sK;twebp/porsche-zoom2.webp" alt="" />
-          </ImageWrapper>
-          <ImageWrapper>
-            <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/jdp-2016-982-718-bo-gallery-exterior-28/zoom2/3deeeb7a-96d0-11e6-9f1b-0019999cd470;sK;twebp/porsche-zoom2.webp" alt="" />
-          </ImageWrapper>
-          <ImageWrapper>
-            <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/jdp-2016-982-718-bo-gallery-exterior-28/zoom2/3deeeb7a-96d0-11e6-9f1b-0019999cd470;sK;twebp/porsche-zoom2.webp" alt="" />
-          </ImageWrapper>
+          {data.map((item) => (
+            <ImageWrapper>
+              <img src={item.src} alt="" />
+            </ImageWrapper>
+          ))}
         </Carousel>
       </Container>
     </Wrapper>

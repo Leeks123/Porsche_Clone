@@ -52,36 +52,41 @@ const Selector = styled.div`
       margin: 0 20px;
   }
 `;
-
+const colors = {
+  exterior: {
+    standard: ['#FFFFFF', '#FEFEFE', '#CC0133', '#FFCC02'],
+    metalic: ['#EFF5FA', '#000000', '#333333', '#C3CDD3', '#CCCCCC', '#01194B', '#1D2738', '#3C3C32'],
+    special: ['#990033', '#C7C7BF', '#D7361D', '#3C9343'],
+  },
+  interior: [
+    '#2C2220', '#333333', '#CC9965', '#782E2F', '#CFD1CF',
+  ],
+};
 const CustomCar = () => (
   <Wrapper>
     <Row>
       <Col md={24} lg={15}>
         <Carousel responsive={responsive}>
+          {}
           <ImageWrapper>
-            <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/jdp-2016-982-718-bo-gallery-exterior-28/zoom2/3deeeb7a-96d0-11e6-9f1b-0019999cd470;sK;twebp/porsche-zoom2.webp" alt="" />
+            <img src='' alt="" />
           </ImageWrapper>
-          <ImageWrapper>
-            <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/jdp-2016-982-718-bo-gallery-exterior-28/zoom2/3deeeb7a-96d0-11e6-9f1b-0019999cd470;sK;twebp/porsche-zoom2.webp" alt="" />
-          </ImageWrapper>
-          <ImageWrapper>
-            <img src="https://files.porsche.com/filestore/galleryimagerwd/multimedia/none/jdp-2016-982-718-bo-gallery-exterior-28/zoom2/3deeeb7a-96d0-11e6-9f1b-0019999cd470;sK;twebp/porsche-zoom2.webp" alt="" />
-          </ImageWrapper>
+          
         </Carousel>
       </Col>
       <Col md={24} lg={9}>
         <Selector>
           <Collapse accordion bordered={false} defaultActiveKey={['1']} expandIconPosition="right" ghost>
             <Panel header="Exterior Color" key="1">
-              <ColorBox text="Standard Color" />
-              <ColorBox text="Metalic Color" />
-              <ColorBox text="Special Color" />
+              <ColorBox text="Standard Color" colors={colors.exterior.standard} />
+              <ColorBox text="Metalic Color" colors={colors.exterior.metalic} />
+              <ColorBox text="Special Color" colors={colors.exterior.special} />
             </Panel>
             <Panel header="Wheels" key="2">
               <WheelBox />
             </Panel>
             <Panel header="Interior Colors and Material" key="3">
-              <ColorBox text="" />
+              <ColorBox text="" colors={colors.interior} />
             </Panel>
           </Collapse>
         </Selector>
