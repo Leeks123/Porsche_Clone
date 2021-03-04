@@ -287,7 +287,7 @@ const StyledModal = ({ isOpen, setState, data }:Props) => {
             </Panel>
             <Panel header="Consumption / Emissions" key="6">
               <ul>
-                {Object.keys(data.consumEmit).map((key) => (
+                {data.consumEmit && Object.keys(data.consumEmit).map((key) => (
                   <li>
                     <div className="collapse-key">{key}</div>
                     <div className="collapse-value">{data.consumEmit[key]}</div>

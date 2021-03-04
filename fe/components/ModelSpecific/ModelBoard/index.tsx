@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { useState, useCallback } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RightOutlined } from '@ant-design/icons';
 import { jsx } from '@emotion/react';
 
@@ -12,6 +12,8 @@ import {
 import Button from '../../../components/common/Button';
 import StyledModal from './StyledModal';
 import { ArrowProps } from 'react-multi-carousel';
+
+import modelspecSlice from '../../../redux/reducers/modelspec';
 
 const responsive = {
   desktop: {
@@ -33,11 +35,14 @@ const responsive = {
 
 const ModelBoard = ({ data }) => {
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
+  const dispatch = useDispatch();
   const [modalState, setModal] = useState(false);
   const [modelType, setModelType] = useState(0);
   const openModal = useCallback(() => {
     setModal(true);
   }, []);
+
+  console.log('modelType', modelType);
 
   return (
     <Wrapper id="modelboard">
@@ -49,11 +54,8 @@ const ModelBoard = ({ data }) => {
         responsive={responsive}
         afterChange={(previousSlide, { currentSlide }) => {
           console.log(previousSlide, currentSlide);
-          if (currentSlide === 0 || currentSlide === data.length - 1) {
-            setModelType(previousSlide);
-          } else {
-            setModelType(currentSlide);
-          }
+          setModelType(currentSlide);
+          dispatch(modelspecSlice.actions.typeChange(currentSlide));
         }}
         ssr
       >

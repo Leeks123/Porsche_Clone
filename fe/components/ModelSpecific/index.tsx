@@ -13,7 +13,7 @@ type Props = {
   model: string,
 }
 const ModelSpecific = ({ model }:Props) => {
-  console.log(model);
+  console.log('jdkj', model);
   console.log(specData[model]);
   return (
     <>
@@ -23,7 +23,7 @@ const ModelSpecific = ({ model }:Props) => {
       <div id="nav2" className="sticky-nav-section"><VideoOveraly data={pageData[model].videooverlay[0]} /></div>
       <div id="nav3" className="sticky-nav-section"><VideoOveraly data={pageData[model].videooverlay[1]} /></div>
       <div id="nav4" className="sticky-nav-section"><VideoOveraly data={pageData[model].videooverlay[2]} /></div>
-      <div id="nav5" className="sticky-nav-section"><CustomCar /></div>
+      <div id="nav5" className="sticky-nav-section"><CustomCar data={specData[model]} /></div>
       <div id="nav6" className="sticky-nav-section"><Gallery data={pageData[model].gallery} model={model} /></div>
       <div id="nav7" className="sticky-nav-section"><NextPhase /></div>
     </>

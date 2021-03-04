@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import styled from '@emotion/styled';
 import { Row, Col, Collapse } from 'antd';
@@ -125,18 +125,25 @@ const PageRecomend = styled.div`
 `;
 const FooterTop = () => {
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
-  const collapseItemScrollPosition: number[] = [188, 246, 304, 361]; // x+ pageHeight
+  let collapseItemScrollPosition: number[] = [188, 246, 304, 361]; // x+ pageHeight
+  const footerTop = useRef<HTMLDivElement>();
+
+  useEffect(() => {
+    // console.log(footerTop.current.offsetTop);
+    collapseItemScrollPosition = collapseItemScrollPosition.map((v) => v + footerTop.current.offsetTop);
+  }, [windowWidth]);
 
   const onChangePanel = useCallback((key: string|string[]) => {
+    // console.log(collapseItemScrollPosition);
     window.scroll({
-      top: collapseItemScrollPosition[+key - 1],
+      top: collapseItemScrollPosition[+key - 1] - 150,
       left: 0,
       behavior: 'smooth',
     });
-  }, []);
+  }, [windowWidth]);
 
   return (
-    <Wrapper>
+    <Wrapper ref={footerTop}>
       {windowWidth > 565 ? (
         <Row gutter={[32, 32]} style={{ borderTop: '1px solid lightgray', paddingTop: 30 }}>
           <Col xs={12} md={12} lg={6}>

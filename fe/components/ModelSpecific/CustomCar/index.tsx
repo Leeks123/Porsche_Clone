@@ -1,11 +1,16 @@
-import { useState } from 'react';
-import { Row, Col, Collapse } from 'antd';
+import { useState, useEffect } from 'react';
+import {
+  Row, Col, Collapse, Empty,
+} from 'antd';
 import styled from '@emotion/styled';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
+import { useSelector } from 'react-redux';
 import ColorBox from './ColorBox';
 import WheelBox from './WheelBox';
+
+import specData from '../Data/spec-data';
 
 const { Panel } = Collapse;
 
@@ -54,45 +59,66 @@ const Selector = styled.div`
 `;
 const colors = {
   exterior: {
-    standard: ['#FFFFFF', '#FEFEFE', '#CC0133', '#FFCC02'],
-    metalic: ['#EFF5FA', '#000000', '#333333', '#C3CDD3', '#CCCCCC', '#01194B', '#1D2738', '#3C3C32'],
-    special: ['#990033', '#C7C7BF', '#D7361D', '#3C9343'],
+    standard: ['#FFFFFF', '#000000', '#CC0133', '#FFCC02'],
+    metalic: ['#EFF5FA', '#000001', '#333333', '#C3CDD3', '#CCCCCC', '#01194B', '#1D2738', '#3C3C32'],
+    special: ['#990033', '#C7C7BF'],
   },
   interior: [
     '#2C2220', '#333333', '#CC9965', '#782E2F', '#CFD1CF',
   ],
 };
-const CustomCar = () => (
-  <Wrapper>
-    <Row>
-      <Col md={24} lg={15}>
-        <Carousel responsive={responsive}>
-          {}
-          <ImageWrapper>
-            <img src='' alt="" />
-          </ImageWrapper>
-          
-        </Carousel>
-      </Col>
-      <Col md={24} lg={9}>
-        <Selector>
-          <Collapse accordion bordered={false} defaultActiveKey={['1']} expandIconPosition="right" ghost>
-            <Panel header="Exterior Color" key="1">
-              <ColorBox text="Standard Color" colors={colors.exterior.standard} />
-              <ColorBox text="Metalic Color" colors={colors.exterior.metalic} />
-              <ColorBox text="Special Color" colors={colors.exterior.special} />
-            </Panel>
-            <Panel header="Wheels" key="2">
-              <WheelBox />
-            </Panel>
-            <Panel header="Interior Colors and Material" key="3">
-              <ColorBox text="" colors={colors.interior} />
-            </Panel>
-          </Collapse>
-        </Selector>
-      </Col>
-    </Row>
-  </Wrapper>
-);
+const CustomCar = ({ data }) => {
+  const exteriorColor = useSelector((state) => state.modelspec.custom.exterior);
+  const interiorColor = useSelector((state) => state.modelspec.custom.interior);
+  const modelType = useSelector((state) => state.modelspec.type);
+
+  console.log(data);
+  const totalImages = data[modelType].customImages;
+  const exColorType = Object.keys(colors.exterior)
+    .filter((item) => colors.exterior[item].includes(exteriorColor));
+
+  const filteredExImages = totalImages && totalImages[exColorType][colors.exterior[exColorType].indexOf(exteriorColor)];
+  const filteredInImages = totalImages && totalImages.interior[colors.interior.indexOf(interiorColor)];
+
+  return (
+    <Wrapper>
+      {totalImages ? (
+        <Row>
+          <Col xs={24} sm={24} md={24} lg={15}>
+            <Carousel responsive={responsive}>
+              {filteredExImages?.map((item:string) => (
+                <ImageWrapper>
+                  <img src={item} alt="" />
+                </ImageWrapper>
+              ))}
+              {filteredInImages?.map((item:string) => (
+                <ImageWrapper>
+                  <img src={item} alt="" />
+                </ImageWrapper>
+              ))}
+            </Carousel>
+          </Col>
+          <Col xs={24} sm={24} md={24} lg={9}>
+            <Selector>
+              <Collapse accordion bordered={false} defaultActiveKey={['1']} expandIconPosition="right" ghost>
+                <Panel header="Exterior Color" key="1">
+                  <ColorBox text="Standard Color" colors={colors.exterior.standard} />
+                  <ColorBox text="Metalic Color" colors={colors.exterior.metalic} />
+                  <ColorBox text="Special Color" colors={colors.exterior.special} />
+                </Panel>
+                <Panel header="Wheels" key="2">
+                  <WheelBox />
+                </Panel>
+                <Panel header="Interior Colors and Material" key="3">
+                  <ColorBox text="" colors={colors.interior} />
+                </Panel>
+              </Collapse>
+            </Selector>
+          </Col>
+        </Row>
+      ) : <Empty />}
+    </Wrapper>
+  );
+};
 
 export default CustomCar;
