@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import ColorBox from './ColorBox';
 import WheelBox from './WheelBox';
 
-import specData from '../Data/spec-data';
+import specData from '../../../utils/modelspecific/spec-data';
 
 const { Panel } = Collapse;
 
@@ -72,7 +72,6 @@ const CustomCar = ({ data }) => {
   const interiorColor = useSelector((state) => state.modelspec.custom.interior);
   const modelType = useSelector((state) => state.modelspec.type);
 
-  console.log(data);
   const totalImages = data[modelType].customImages;
   const exColorType = Object.keys(colors.exterior)
     .filter((item) => colors.exterior[item].includes(exteriorColor));

@@ -42,8 +42,6 @@ const ModelBoard = ({ data }) => {
     setModal(true);
   }, []);
 
-  console.log('modelType', modelType);
-
   return (
     <Wrapper id="modelboard">
       <Background />
@@ -53,7 +51,6 @@ const ModelBoard = ({ data }) => {
         showDots
         responsive={responsive}
         afterChange={(previousSlide, { currentSlide }) => {
-          console.log(previousSlide, currentSlide);
           setModelType(currentSlide);
           dispatch(modelspecSlice.actions.typeChange(currentSlide));
         }}
