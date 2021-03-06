@@ -69,10 +69,10 @@ const Gallery = ({ data, model }:Props) => {
         </StyledSelect>
       </GalleryHeader>
 
-      {isZoomed && <ZoomedImages setZoomed={setZoomed} data={data} model={model}/>}
+      {isZoomed && <ZoomedImages setZoomed={setZoomed} data={data} model={model} />}
       <div>
         {category === 'all' && (
-        <Carousel responsive={responsive}>
+        <Carousel responsive={responsive} ssr>
           <div>
             <img src={data[0].src} alt="" style={{ width: '100%' }} onClick={onClick} />
             <img src={data[1].src} alt="" style={{ width: '50%' }} onClick={onClick} />

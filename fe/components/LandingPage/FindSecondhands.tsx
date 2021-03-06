@@ -41,7 +41,7 @@ const FindSecondhands = () => (
   <Wrapper>
     <Headline text="포르쉐 인증 중고차 찾기" />
     <div>
-      <Carousel swipeable responsive={responsive} showDots autoPlay infinite>
+      <Carousel swipeable responsive={responsive} showDots autoPlay infinite ssr>
         {secondhandData.map((item) => (
           <SecondhandsCard>
             <img src={item.imgSrc} alt={item.name} />

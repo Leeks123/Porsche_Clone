@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { jsx } from '@emotion/react';
 import {
   SettingOutlined, SwapOutlined, SearchOutlined, RightOutlined,
 } from '@ant-design/icons';
@@ -9,7 +8,7 @@ import { menuDataProp } from '../../utils/menu-data';
 const StyledSubMenu = styled.div`
   background-color : #fff;
   padding: 20px;
-  position: fixed;
+  position: absolute;
   top: 117px;left:0;right:0;
 
   ul { 
@@ -58,7 +57,7 @@ type subProp = {
     data: menuDataProp[]
 }
 const ModelSubMenu = ({ title, data }:subProp) => (
-  <StyledSubMenu css={{ zIndex: 100 }}>
+  <StyledSubMenu style={{ zIndex: 100 }}>
     <SubMenuItem>
       <li>
         <SettingOutlined />

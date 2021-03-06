@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { jsx } from '@emotion/react';
 
 import { textMenuProp } from '../../utils/menu-data';
 
@@ -8,7 +7,7 @@ const StyledSubMenu = styled.div`
   background-color : #fff;
   justify-content: center;
   padding: 50px;
-  position: fixed;
+  position: absolute;
   top: 117px;left:0;right:0;
 
   ul { 
@@ -37,7 +36,7 @@ type subProp = {
     data: textMenuProp[]
 }
 const TextSubMenu = ({ data }:subProp) => (
-  <StyledSubMenu css={{ zIndex: 100 }}>
+  <StyledSubMenu style={{ zIndex: 100 }}>
     {data.map((group) => (
       <ul>
         <h1>{group.title}</h1>

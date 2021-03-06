@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable no-unused-vars */
 import { CloseOutlined } from '@ant-design/icons';
 import styled from '@emotion/styled';
 import { useCallback } from 'react';
@@ -60,7 +63,7 @@ const responsive = {
 
 type Props = {
     setZoomed: (arg:boolean) => void,
-    data: object[],
+    data: {type: string, src: string}[],
     model: string,
 }
 const ZoomedImages = ({ setZoomed, data, model }:Props) => {

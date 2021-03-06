@@ -33,7 +33,7 @@ const TextMenu = ({ title, data }:Props) => {
   const [hovered, setHovered] = useState(false);
   const onMouseAction = useCallback(() => {
     setHovered((prev) => !prev);
-    dispatch(layoutSlice.actions.toggle());
+    dispatch(layoutSlice.actions.toggle);
   }, []);
   return (
     <div onMouseEnter={onMouseAction} onMouseLeave={onMouseAction}>

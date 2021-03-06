@@ -10,15 +10,19 @@ import specData from '../../utils/modelspecific/spec-data';
 
 type Props = {
   data?: {
-    page: object, spec: object,
+    page: {
+      navlist: string[],
+      concept: object,
+      videooverlay: object[],
+      gallery: object[] | any,
+    } | undefined,
+    spec: object,
   },
   errors?: string
 }
 const Model = ({ data, errors }:Props) => {
   const router = useRouter();
   const model = router.query?.model;
-
-  console.log('[model]', data);
 
   if (errors) {
     return (
@@ -48,7 +52,7 @@ const Model = ({ data, errors }:Props) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const models = Object.keys(pageData);
-  const paths = models.map((model) => ({
+  const paths = models.map((model:string) => ({
     params: { model },
   }));
 
@@ -57,12 +61,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
-    const model = params?.model;
+    const model:string = String(params?.model);
     const page = pageData[model];
     const spec = specData[model];
     const data = { page, spec };
-    console.log('get_static_props', data);
-
     return { props: { data } };
   } catch (err) {
     return { props: { errors: err.message } };

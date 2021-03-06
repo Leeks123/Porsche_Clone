@@ -11,7 +11,6 @@ import {
 } from '../ModelBoard/styles';
 import Button from '../../../components/common/Button';
 import StyledModal from './StyledModal';
-import { ArrowProps } from 'react-multi-carousel';
 
 import modelspecSlice from '../../../redux/reducers/modelspec';
 
@@ -33,7 +32,7 @@ const responsive = {
   },
 };
 
-const ModelBoard = ({ data }) => {
+const ModelBoard = ({ data }:any) => {
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
   const dispatch = useDispatch();
   const [modalState, setModal] = useState(false);
@@ -50,13 +49,13 @@ const ModelBoard = ({ data }) => {
         draggable
         showDots
         responsive={responsive}
-        afterChange={(previousSlide, { currentSlide }) => {
+        afterChange={(_previousSlide, { currentSlide }) => {
           setModelType(currentSlide);
           dispatch(modelspecSlice.actions.typeChange(currentSlide));
         }}
         ssr
       >
-        {data.map((item) => (
+        {data.map((item:any) => (
           <SpecContainer>
             <SpecHeadline>
               <div className="headline-flag">new</div>

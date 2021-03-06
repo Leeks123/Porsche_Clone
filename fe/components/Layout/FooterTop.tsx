@@ -126,12 +126,17 @@ const PageRecomend = styled.div`
 const FooterTop = () => {
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
   let collapseItemScrollPosition: number[] = [188, 246, 304, 361]; // x+ pageHeight
-  const footerTop = useRef<HTMLDivElement>();
+  const footerTop = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // console.log(footerTop.current.offsetTop);
-    collapseItemScrollPosition = collapseItemScrollPosition.map((v) => v + footerTop.current.offsetTop);
-  }, [windowWidth]);
+    collapseItemScrollPosition = collapseItemScrollPosition.map((v) => {
+      if (footerTop.current !== null) {
+        return v + footerTop.current.offsetTop;
+      }
+      return v;
+    });
+  }, [windowWidth, footerTop]);
 
   const onChangePanel = useCallback((key: string|string[]) => {
     // console.log(collapseItemScrollPosition);

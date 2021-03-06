@@ -77,7 +77,7 @@ const buttonColor:ButtonProps['color'] = {
 type Props = {
   data: {
     poster:string, src:string, title:string, content:string,
-  }
+  } | undefined | any
 }
 const VideoOveraly = ({ data }:Props) => {
   const wrapper = useRef<HTMLDivElement>(null);
@@ -93,13 +93,15 @@ const VideoOveraly = ({ data }:Props) => {
       //   window.scrollY,
       //   wrapper.current?.getBoundingClientRect().top,
       // );
-      const elTopPos = wrapper.current.getBoundingClientRect().top;
-      if (elTopPos <= 100) {
-        // console.log('on top');
-        setElTop(true);
-        video.current?.play();
-      } else {
-        setElTop(false);
+      if (wrapper.current !== null) {
+        const elTopPos = wrapper.current.getBoundingClientRect().top;
+        if (elTopPos <= 100) {
+          // console.log('on top');
+          setElTop(true);
+          video.current?.play();
+        } else {
+          setElTop(false);
+        }
       }
     }
     window.addEventListener('scroll', onScroll);

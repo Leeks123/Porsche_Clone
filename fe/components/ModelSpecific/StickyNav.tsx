@@ -41,7 +41,7 @@ const Wrapper = styled.div<WrapperProps>`
 `;
 
 type StickyNavProps = {
-  navList: string[],
+  navList: string[] | undefined,
 }
 const StickyNav = ({ navList }:StickyNavProps) => {
   const [activeNav, setActiveNav] = useState(1);
@@ -89,7 +89,7 @@ const StickyNav = ({ navList }:StickyNavProps) => {
     <Wrapper active={activeNav}>
       <div>
         <ul>
-          {navList.map((v, i) => (
+          {navList?.map((v, i) => (
             <li><a href={`#nav${i + 1}`} id={`${i + 1}`} onClick={onClick}>{v}</a></li>
           ))}
         </ul>

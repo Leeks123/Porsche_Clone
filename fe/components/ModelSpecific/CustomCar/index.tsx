@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+/* eslint-disable max-len */
 import {
   Row, Col, Collapse, Empty,
 } from 'antd';
@@ -9,8 +9,6 @@ import 'react-multi-carousel/lib/styles.css';
 import { useSelector } from 'react-redux';
 import ColorBox from './ColorBox';
 import WheelBox from './WheelBox';
-
-import specData from '../../../utils/modelspecific/spec-data';
 
 const { Panel } = Collapse;
 
@@ -57,7 +55,11 @@ const Selector = styled.div`
       margin: 0 20px;
   }
 `;
-const colors = {
+type Color = {
+  exterior: { [standard: string]: string[], metalic: string[], special: string[] },
+  interior: string[],
+}
+const colors:Color = {
   exterior: {
     standard: ['#FFFFFF', '#000000', '#CC0133', '#FFCC02'],
     metalic: ['#EFF5FA', '#000001', '#333333', '#C3CDD3', '#CCCCCC', '#01194B', '#1D2738', '#3C3C32'],
@@ -67,14 +69,14 @@ const colors = {
     '#2C2220', '#333333', '#CC9965', '#782E2F', '#CFD1CF',
   ],
 };
-const CustomCar = ({ data }) => {
+const CustomCar = ({ data }:any) => {
   const exteriorColor = useSelector((state) => state.modelspec.custom.exterior);
   const interiorColor = useSelector((state) => state.modelspec.custom.interior);
   const modelType = useSelector((state) => state.modelspec.type);
 
   const totalImages = data[modelType].customImages;
-  const exColorType = Object.keys(colors.exterior)
-    .filter((item) => colors.exterior[item].includes(exteriorColor));
+  const exColorType:string = Object.keys(colors.exterior)
+    .filter((item) => colors.exterior[item].includes(exteriorColor))[0];
 
   const filteredExImages = totalImages && totalImages[exColorType][colors.exterior[exColorType].indexOf(exteriorColor)];
   const filteredInImages = totalImages && totalImages.interior[colors.interior.indexOf(interiorColor)];
@@ -84,7 +86,7 @@ const CustomCar = ({ data }) => {
       {totalImages ? (
         <Row>
           <Col xs={24} sm={24} md={24} lg={15}>
-            <Carousel responsive={responsive}>
+            <Carousel responsive={responsive} ssr>
               {filteredExImages?.map((item:string) => (
                 <ImageWrapper>
                   <img src={item} alt="" />

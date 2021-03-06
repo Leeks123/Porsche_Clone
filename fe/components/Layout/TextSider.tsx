@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import styled from '@emotion/styled';
@@ -55,7 +56,7 @@ const StyledDrawer = styled(Drawer)`
 `;
 
 type Props = {
-    title: string, data:textMenuProp[] | string[], parentVisible: (arg:boolean) => void,
+    title: string, data:(textMenuProp |string)[], parentVisible: (arg:boolean) => void,
 }
 
 const TextSider = ({ title, data, parentVisible }:Props) => {
@@ -82,7 +83,7 @@ const TextSider = ({ title, data, parentVisible }:Props) => {
       >
         <div className="container">
           <h1>{title}</h1>
-          {data?.map((v:any) => {
+          {data.map((v:any) => {
             if (typeof v === 'object') {
               return (
                 <TextSider title={v.title} data={v.data} parentVisible={setVisible} />

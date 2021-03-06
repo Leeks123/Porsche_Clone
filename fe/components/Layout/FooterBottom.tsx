@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import styled from '@emotion/styled';
@@ -38,7 +39,7 @@ const LegalNotice = styled.div`
 const FooterBottom = () => {
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
   const [region, setRegion] = useState<SelectValue>(select[0].region);
-  const [countries, setCountries] = useState([]);
+  const [countries, setCountries] = useState<any>([]);
   const [country, setCountry] = useState<SelectValue>('');
   const [countrySelectAble, setCountrySelectAble] = useState(false);
 
@@ -54,6 +55,7 @@ const FooterBottom = () => {
 
   return (
     <Wrapper>
+      {region && country}
       <ChangeCountry>
         <span>국가 / 지역 변경 :</span>
       </ChangeCountry>
@@ -68,7 +70,7 @@ const FooterBottom = () => {
         <Col span={windowWidth > 565 ? 12 : 24}>
           {countrySelectAble ? (
             <StyledSelect size="large" placeholder="국가 / 지역을 선택하여 주십시오" onChange={onSelectCountry}>
-              {countries.map((v) => (
+              {countries.map((v:any) => (
                 <Option value={v} key={v}>{v}</Option>
               ))}
             </StyledSelect>

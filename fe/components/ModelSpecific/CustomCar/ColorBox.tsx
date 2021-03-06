@@ -1,5 +1,5 @@
 /* eslint-disable no-nested-ternary */
-import { useState, useCallback } from 'react';
+import { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from '@emotion/styled';
 import { CheckCircleOutlined, SyncOutlined } from '@ant-design/icons';

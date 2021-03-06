@@ -3,6 +3,7 @@ import Head from 'next/head';
 import 'antd/dist/antd.css';
 import wrapper from '../redux/store/configureStore';
 import '../components/ModelSpecific/ModelBoard/modal.css';
+import 'react-multi-carousel/lib/styles.css';
 
 const App = ({ Component, pageProps }: AppProps) => (
   <>

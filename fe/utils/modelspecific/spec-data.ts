@@ -1,4 +1,7 @@
-const specData = {
+type SpecData = {
+  [key: string]: object[],
+}
+const specData:SpecData = {
   718: [
     {
       name: '718 Cayman',

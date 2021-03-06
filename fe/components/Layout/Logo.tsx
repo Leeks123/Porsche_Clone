@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import styled from '@emotion/styled';
-import { jsx } from '@emotion/react';
 
 import { mq } from '../../utils/mediaquery';
 
@@ -39,7 +38,7 @@ const StyledLogo = styled.div`
 `;
 const Logo = () => (
   <StyledLink href="/">
-    <a css={{ zIndex: 400 }}>
+    <a style={{ zIndex: 400 }}>
       <StyledLogo>
         <img
           srcSet="
