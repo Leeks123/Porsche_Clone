@@ -72,7 +72,9 @@ const colors:Color = {
 const CustomCar = ({ data }:any) => {
   // @ts-ignore
   const exteriorColor = useSelector((state) => state.modelspec.custom.exterior);
+  // @ts-ignore
   const interiorColor = useSelector((state) => state.modelspec.custom.interior);
+  // @ts-ignore
   const modelType = useSelector((state) => state.modelspec.type);
 
   const totalImages = data[modelType].customImages;

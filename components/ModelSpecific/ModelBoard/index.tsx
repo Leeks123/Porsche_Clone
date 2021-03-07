@@ -33,6 +33,7 @@ const responsive = {
 };
 
 const ModelBoard = ({ data }:any) => {
+  // @ts-ignore
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
   const dispatch = useDispatch();
   const [modalState, setModal] = useState(false);
