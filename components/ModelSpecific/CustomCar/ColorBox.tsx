@@ -61,8 +61,10 @@ const ColorBox = ({ text, colors }:Props) => {
   // @ts-ignore
   const selectedColor = useSelector((state) => {
     if (text !== '') {
+      // @ts-ignore
       return state.modelspec.custom.exterior;
     }
+    // @ts-ignore
     return state.modelspec.custom.interior;
   });
   const onSelect = useCallback((e) => {
