@@ -124,6 +124,7 @@ const PageRecomend = styled.div`
     }
 `;
 const FooterTop = () => {
+  // @ts-ignore
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
   let collapseItemScrollPosition: number[] = [188, 246, 304, 361]; // x+ pageHeight
   const footerTop = useRef<HTMLDivElement>(null);

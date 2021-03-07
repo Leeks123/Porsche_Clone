@@ -58,6 +58,7 @@ type Props = {
 const ColorBox = ({ text, colors }:Props) => {
   const imgLoaded = true;
   const dispatch = useDispatch();
+  // @ts-ignore
   const selectedColor = useSelector((state) => {
     if (text !== '') {
       return state.modelspec.custom.exterior;

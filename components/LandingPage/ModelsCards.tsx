@@ -102,6 +102,7 @@ const StyledCol = styled(Col)`
 `;
 
 const ModelsCards = () => {
+  // @ts-ignore
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
 
   return (

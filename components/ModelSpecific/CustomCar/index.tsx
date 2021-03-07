@@ -70,6 +70,7 @@ const colors:Color = {
   ],
 };
 const CustomCar = ({ data }:any) => {
+  // @ts-ignore
   const exteriorColor = useSelector((state) => state.modelspec.custom.exterior);
   const interiorColor = useSelector((state) => state.modelspec.custom.interior);
   const modelType = useSelector((state) => state.modelspec.type);

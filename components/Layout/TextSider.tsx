@@ -60,6 +60,7 @@ type Props = {
 }
 
 const TextSider = ({ title, data, parentVisible }:Props) => {
+  // @ts-ignore
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
   const [visible, setVisible] = useState(false);
 

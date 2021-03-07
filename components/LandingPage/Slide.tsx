@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Carousel } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 
+
 const Content = styled.div`
     height: 112.5vw;
     & > div {
@@ -67,6 +68,7 @@ const Content = styled.div`
 `;
 
 const Slide = () => {
+  // @ts-ignore
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
   return (
     <Carousel easing="ease-in" autoplay>

@@ -17,6 +17,7 @@ type Props = {
   title?: string
 }
 const Layout = ({ children, title = 'Porsche Korea' }: Props) => {
+  // @ts-ignore
   const menuOpend = useSelector((state) => state.layout?.menuOpend);
   return (
     <div>

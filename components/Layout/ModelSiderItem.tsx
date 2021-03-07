@@ -86,6 +86,7 @@ type Props = {
 const ModelSiderItem = ({
   title, img, submenu, parentVisible,
 }:Props) => {
+  // @ts-ignore
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
   const [visible, setVisible] = useState(false);
 

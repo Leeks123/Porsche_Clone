@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import { Row, Col, Select } from 'antd';
 import { SelectValue } from 'antd/lib/select';
 
+
 import { select } from '../../utils/footer-data';
 
 const { Option } = Select;
@@ -37,6 +38,7 @@ const LegalNotice = styled.div`
 `;
 
 const FooterBottom = () => {
+  // @ts-ignore
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
   const [region, setRegion] = useState<SelectValue>(select[0].region);
   const [countries, setCountries] = useState<any>([]);

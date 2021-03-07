@@ -5,6 +5,7 @@ import { Row, Col } from 'antd';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
+
 import Headline from '../common/Headline';
 import Button from '../common/Button';
 
@@ -41,6 +42,7 @@ const responsive = {
 };
 
 const Discover = () => {
+  // @ts-ignore
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
 
   return (
