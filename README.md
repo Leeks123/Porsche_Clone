@@ -21,5 +21,10 @@ netlify를 통한 배포
 
 #### 메인페이지
 
-<img src="https://user-images.githubusercontent.com/37547661/102265865-085fc500-3f5b-11eb-8e94-cd3109d2843b.png" alt="mainpage"/>
+<img src="https://user-images.githubusercontent.com/37547661/110238807-0835fb00-7f87-11eb-990e-57b65c67126b.gif" alt="landingpage"/>
+
 #### 모델 상세페이지 (718, 911)
+
+<img src="https://user-images.githubusercontent.com/37547661/110238911-7d093500-7f87-11eb-8943-8ca1cbb38a63.gif" alt="modelpage"/>
+
+<img src="https://user-images.githubusercontent.com/37547661/110238935-a033e480-7f87-11eb-8961-88fccc87a937.gif" alt="modelpage"/>
