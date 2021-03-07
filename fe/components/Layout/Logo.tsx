@@ -3,8 +3,6 @@ import styled from '@emotion/styled';
 
 import { mq } from '../../utils/mediaquery';
 
-const StyledLink = styled(Link)`
-`;
 const StyledLogo = styled.div`
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -37,7 +35,7 @@ const StyledLogo = styled.div`
     }
 `;
 const Logo = () => (
-  <StyledLink href="/">
+  <Link href="/">
     <a style={{ zIndex: 400 }}>
       <StyledLogo>
         <img
@@ -51,7 +49,7 @@ const Logo = () => (
         />
       </StyledLogo>
     </a>
-  </StyledLink>
+  </Link>
 
 );
 

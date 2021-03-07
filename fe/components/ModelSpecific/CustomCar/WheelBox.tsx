@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import { useState, useCallback } from 'react';
-import Image from 'next/image';
+// import Image from 'next/image';
 import styled from '@emotion/styled';
 import { CheckCircleOutlined, SyncOutlined } from '@ant-design/icons';
 
@@ -67,7 +67,7 @@ const WheelBox = () => {
           if (wheel === selectColor) {
             return (
               <Wheel imgSrc={wheel} isSelected id={wheel} onClick={onSelect}>
-                <Image src={`${wheel}`} alt={`${wheel}`} height={66} width={66} className="tire-img" />
+                <img src={`${wheel}`} alt={`${wheel}`} height={66} width={66} className="tire-img" />
                 { true
                   ? imgLoaded
                     ? <CheckCircleOutlined className="check" />
@@ -78,7 +78,7 @@ const WheelBox = () => {
           }
           return (
             <Wheel imgSrc={wheel} isSelected={false} id={wheel} onClick={onSelect}>
-              <Image src={`${wheel}`} alt={`${wheel}`} height={60} width={60} className="tire-img" />
+              <img src={`${wheel}`} alt={`${wheel}`} height={60} width={60} className="tire-img" />
               { false
                 ? imgLoaded
                   ? <CheckCircleOutlined className="check" />

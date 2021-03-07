@@ -1,4 +1,4 @@
-import Image from 'next/image';
+// import Image from 'next/image';
 import styled from '@emotion/styled';
 import {
   SetStateAction, Dispatch, useEffect, useState,
@@ -210,7 +210,7 @@ const StyledModal = ({ isOpen, setState, data }:Props) => {
             </div>
             <div className="modalcontent-img-container">
               <div className="img-wrapper">
-                <Image src="/modal.png" alt="modalcar" height={750} width={380} className="car-img" />
+                <img src="/modal.png" alt="modalcar" height="auto" width="100%" className="car-img" />
               </div>
               <div className="model-sizes">
                 <div className="model-size-content">

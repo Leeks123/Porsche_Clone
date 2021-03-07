@@ -7,8 +7,7 @@
     "build": "next build && next export",
     "export": "next export",
     "start": "next start",
-    "type-check": "tsc",
-    "deploy": "rm -rf node_modules/.cache && next build && touch out/.nojekyll && git add out/ && git commit -m \"Deploy Next.js to gh-pages\" && git subtree push --prefix out origin gh-pages"
+    "type-check": "tsc"
   },
   "dependencies": {
     "@ant-design/icons": "^4.4.0",
@@ -21,6 +20,7 @@
     "@reduxjs/toolkit": "^1.5.0",
     "@types/react-redux": "^7.1.16",
     "@zeit/next-less": "^1.0.1",
+    "babel-plugin-transform-define": "^2.0.0",
     "gh-pages": "^3.1.0",
     "less": "^2.7.3",
     "next": "latest",
