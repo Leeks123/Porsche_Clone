@@ -44,14 +44,15 @@ const responsive = {
 const Discover = () => {
   // @ts-ignore
   const windowWidth = useSelector((state) => state.layout?.windowWidth);
+  console.log('reander', windowWidth);
 
   return (
     <Wrapper>
       <Headline text="Discover" />
-      {windowWidth > 992
+      {windowWidth > 992 || windowWidth === undefined
         ? (
           <Row gutter={[0, 0]}>
-            <StyledCol lg={6}>
+            <StyledCol span={6}>
               <div className="container">
                 <img src="https://files.porsche.com/filestore/image/multimedia/none/rd-2017-homepage-teaser-porscheexclusivemanufaktur-kw24/normal/3cbd9b47-4c59-11e7-bfe2-0019999cd470;sM;twebp/porsche-normal.webp" alt="" />
                 <Button
@@ -60,13 +61,13 @@ const Discover = () => {
                   color={{
                     fontColor: 'black', backColor: 'transparent', hoverFontColor: '#d5001c', hoverBackColor: 'transparent',
                   }}
-                  style={{ padding: 10 }}
+                  style={{ marginLeft: 10, padding: 10 }}
                 >
                   <RightOutlined style={{ color: '#d5001c' }} />
                 </Button>
               </div>
             </StyledCol>
-            <StyledCol lg={6}>
+            <StyledCol span={6}>
               <div className="container">
                 <img src="https://files.porsche.com/filestore/image/multimedia/none/rd-2017-homepage-teaser-ww-tequipmentsound-design-kw27/normal/e19a7537-5cd4-11e7-9717-0019999cd470;sM;twebp/porsche-normal.webp" alt="" />
                 <Button
@@ -75,13 +76,13 @@ const Discover = () => {
                   color={{
                     fontColor: 'black', backColor: 'transparent', hoverFontColor: '#d5001c', hoverBackColor: 'transparent',
                   }}
-                  style={{ padding: 10 }}
+                  style={{ marginLeft: 10, padding: 10 }}
                 >
                   <ExportOutlined style={{ color: '#d5001c' }} />
                 </Button>
               </div>
             </StyledCol>
-            <StyledCol lg={6}>
+            <StyledCol span={6}>
               <div className="container">
                 <img src="https://files.porsche.com/filestore/image/multimedia/none/rd-2019-homepage-teaser-pof-porschefinder-kw45/normal/f26ec9e6-fb09-11e9-80c6-005056bbdc38;sM;twebp/porsche-normal.webp" alt="" />
                 <Button
@@ -90,13 +91,13 @@ const Discover = () => {
                   color={{
                     fontColor: 'black', backColor: 'transparent', hoverFontColor: '#d5001c', hoverBackColor: 'transparent',
                   }}
-                  style={{ padding: 10 }}
+                  style={{ marginLeft: 10, padding: 10 }}
                 >
                   <ExportOutlined style={{ color: '#d5001c' }} />
                 </Button>
               </div>
             </StyledCol>
-            <StyledCol lg={6}>
+            <StyledCol span={6}>
               <div className="container">
                 <img src="https://files.porsche.com/filestore/image/multimedia/none/rd-2018-homepage-teaser-ww-e-performance-kw12/normal/f7cc8e7c-6599-11e9-80c4-005056bbdc38;sM;twebp/porsche-normal.webp" alt="" />
                 <Button
@@ -105,7 +106,7 @@ const Discover = () => {
                   color={{
                     fontColor: 'black', backColor: 'transparent', hoverFontColor: '#d5001c', hoverBackColor: 'transparent',
                   }}
-                  style={{ padding: 10 }}
+                  style={{ marginLeft: 10, padding: 10 }}
                 >
                   <RightOutlined style={{ color: '#d5001c' }} />
                 </Button>
@@ -121,6 +122,7 @@ const Discover = () => {
             responsive={responsive}
             infinite
             autoPlay
+            ssr
           >
             <StyledCol>
               <div className="container">
@@ -131,7 +133,7 @@ const Discover = () => {
                   color={{
                     fontColor: 'black', backColor: 'transparent', hoverFontColor: '#d5001c', hoverBackColor: 'transparent',
                   }}
-                  style={{ padding: 10 }}
+                  style={{ marginLeft: 10, padding: 10 }}
                 >
                   <RightOutlined style={{ color: '#d5001c' }} />
                 </Button>
@@ -146,7 +148,7 @@ const Discover = () => {
                   color={{
                     fontColor: 'black', backColor: 'transparent', hoverFontColor: '#d5001c', hoverBackColor: 'transparent',
                   }}
-                  style={{ padding: 10 }}
+                  style={{ marginLeft: 10, padding: 10 }}
                 >
                   <ExportOutlined style={{ color: '#d5001c' }} />
                 </Button>
@@ -161,7 +163,7 @@ const Discover = () => {
                   color={{
                     fontColor: 'black', backColor: 'transparent', hoverFontColor: '#d5001c', hoverBackColor: 'transparent',
                   }}
-                  style={{ padding: 10 }}
+                  style={{ marginLeft: 10, padding: 10 }}
                 >
                   <ExportOutlined style={{ color: '#d5001c' }} />
                 </Button>
@@ -176,7 +178,7 @@ const Discover = () => {
                   color={{
                     fontColor: 'black', backColor: 'transparent', hoverFontColor: '#d5001c', hoverBackColor: 'transparent',
                   }}
-                  style={{ padding: 10 }}
+                  style={{ marginLeft: 10, padding: 10 }}
                 >
                   <RightOutlined style={{ color: '#d5001c' }} />
                 </Button>
@@ -184,6 +186,7 @@ const Discover = () => {
             </StyledCol>
           </Carousel>
         )}
+        
     </Wrapper>
   );
 };

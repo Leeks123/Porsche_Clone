@@ -116,6 +116,7 @@ const VideoOveraly = ({ data }:Props) => {
         <video
           ref={video}
           crossOrigin=""
+          playsInline
           width="100%"
           height="100vh"
           poster={data.poster}

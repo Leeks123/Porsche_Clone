@@ -150,9 +150,9 @@ const FooterTop = () => {
 
   return (
     <Wrapper ref={footerTop}>
-      {windowWidth > 565 ? (
+      {windowWidth > 565 || windowWidth === undefined ? (
         <Row gutter={[32, 32]} style={{ borderTop: '1px solid lightgray', paddingTop: 30 }}>
-          <Col xs={12} md={12} lg={6}>
+          <Col xs={12} md={12} lg={6} xl={6} xxl={6}>
             <Container>
               <h3>Build & Find</h3>
               <li><span>나만의 포르쉐 만들기</span></li>
@@ -160,21 +160,21 @@ const FooterTop = () => {
               <li><span>포르쉐 센터 찾기</span></li>
             </Container>
           </Col>
-          <Col xs={12} md={12} lg={6}>
+          <Col xs={12} md={12} lg={6} xl={6} xxl={6}>
             <Container>
               <h3>온라인 서비스</h3>
               <li><span>Porsche Financial Services</span></li>
               <li><span>뉴스 가입</span></li>
             </Container>
           </Col>
-          <Col xs={12} md={12} lg={6}>
+          <Col xs={12} md={12} lg={6} xl={6} xxl={6}>
             <Container>
               <h3>Behind the Scenes</h3>
               <li><span>Passion Motorsports</span></li>
               <li><span>Porsche Classic</span></li>
             </Container>
           </Col>
-          <Col xs={12} md={12} lg={6}>
+          <Col xs={12} md={12} lg={6} xl={6} xxl={6}>
             <Container>
               <h3>Porsche Company</h3>
               <li><span>At a Glance</span></li>
@@ -224,7 +224,7 @@ const FooterTop = () => {
       )}
       <PageRecomend>
         <Row gutter={[32, 32]}>
-          <Col span={windowWidth > 565 ? 12 : 24} offset={windowWidth > 565 ? 12 : 0}>
+          <Col span={windowWidth > 565 || windowWidth === undefined ? 12 : 24} offset={windowWidth > 565 || windowWidth === undefined ? 12 : 0}>
             <div className="container">
               <div className="header">
                 <SelectOutlined />

@@ -30,6 +30,7 @@ const Concept = () => (
       <Col lg={12} xl={24}>
         <video
           crossOrigin=""
+          playsInline
           width="100%"
           poster="data:image/gif;base64,R0lGODlhEAAJAPAAAAAAAP///yH5BAUAAAAALAAAAAAQAAkAAAIKhI+py+0Po5yUFQA7"
           autoPlay
