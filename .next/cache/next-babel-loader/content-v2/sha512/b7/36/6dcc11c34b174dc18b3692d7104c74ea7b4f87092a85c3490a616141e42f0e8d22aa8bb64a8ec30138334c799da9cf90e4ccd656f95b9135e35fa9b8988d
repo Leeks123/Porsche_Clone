@@ -1,0 +1,1 @@
+{"ast":null,"code":"/* eslint-disable import/prefer-default-export */\nconst breakpoints = [500, 760, 1000, 1300];\nexport const mq = breakpoints.map(bp => `@media (min-width: ${bp}px)`);","map":null,"metadata":{},"sourceType":"module"}
