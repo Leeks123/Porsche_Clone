@@ -12,7 +12,7 @@ type WrapperProp = {
 }
 const Wrapper = styled.section<WrapperProp>`
     width: 100%;
-    height: 100vh;
+    height: 120vh;
     overflow: hidden;
 
     position: sticky;
@@ -22,7 +22,7 @@ const Background = styled.div`
     width: 100%;
     height: 100%;
     video {
-        height: 100vh;
+        height: 120vh;
         object-fit: cover;
     }
 `;
@@ -33,17 +33,17 @@ type OverlayProp = {
 const Overlay = styled.div<OverlayProp>`
     position: relative;
     top: -100%;
-    height: 100vh;
+    height: 120vh;
 
     ${(props) => (props.onTop ? 'overflow: scroll;' : 'overflow: hidden;')}
     // overflow: scroll;
     
     .overlay-top {
-        height: 100vh;
+        height: 120vh;
     }
     .overlay-bottom {
         background: linear-gradient(transparent,black);
-        height: 100vh;
+        height: 120vh;
         z-index: 10;
 
         .overlay-bottom-container {
